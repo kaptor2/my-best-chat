@@ -1,0 +1,13 @@
+@import '../../styles/media.scss';
+
+@include for-size(any) {    
+    .auth {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .auth__container {
+        width: 430px;
+    }
+ }

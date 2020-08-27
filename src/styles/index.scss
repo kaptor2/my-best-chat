@@ -1,1 +1,7 @@
 @import '~antd/dist/antd.css';
+@import './anyDefaults.scss';
+@import './phoneDefaults.scss';
+
+body, section, .app, #root {
+    height: 100%;
+}

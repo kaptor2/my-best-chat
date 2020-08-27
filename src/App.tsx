@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button } from './components';
+import { Auth } from './pages';
 
-export const App: React.FC = () => {
+export const App = () => {
     return (
-        <div className='App'>
-            <Button type='primary' size="large" >This's button from antd</Button>
+        <div className='app'>
+            <Auth />
         </div>
     )
 }

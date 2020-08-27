@@ -1,0 +1,26 @@
+$any: (
+  '4/3',
+  '16/10',
+  '16/9',
+  '701/1051'
+);
+
+$phone: (
+  '2/3', 
+  '3/5', 
+  '9/16',
+);
+
+@mixin for-size($size) {
+  @if $size == any {
+    @each $aspect in $any {
+      @media (min-aspect-ratio: #{$aspect}) { @content; }
+    }
+  }
+  
+  @if $size == phone {
+    @each $aspect in $phone {
+       @media (max-aspect-ratio: #{$aspect}) { @content; }
+    }
+  }
+}

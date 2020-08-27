@@ -1,0 +1,7 @@
+@import './media.scss';
+
+@include for-size(phone) {    
+    span {
+        font-size: 25pt;
+    }
+}

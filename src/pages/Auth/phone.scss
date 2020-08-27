@@ -1,0 +1,14 @@
+@import '../../styles/media.scss';
+
+@include for-size(phone) {    
+   .auth {
+        .auth__container{
+            height: 100%;
+            .card-block {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+        }
+   }
+}

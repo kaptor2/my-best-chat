@@ -1,0 +1,7 @@
+@import './media.scss';
+
+@include for-size(any) {    
+    span {
+        font-size: 10pt;
+    }
+}

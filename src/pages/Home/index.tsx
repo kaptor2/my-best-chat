@@ -1,15 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import './{{pascalCase name}}.scss';
+import './Home.scss';
 
-type T{{pascalCase name}} = {
-
-}
-
-export const {{pascalCase name}} = ({}: T{{pascalCase name}}) => {
+export const Home = () => {
     const classes = classNames([
-        '{{kebabCase name}}'
+        'home'
     ]);
 
     return (

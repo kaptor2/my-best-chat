@@ -4,15 +4,15 @@ import classNames from 'classnames';
 import './CardBlock.scss';
 
 type TCardBlock = {
-
+    children?: any
 }
 
-export const CardBlock = ({}: TCardBlock) => {
+export const CardBlock = ({ children }: TCardBlock) => {
     const classes = classNames([
         'card-block'
     ]);
 
     return (
-        <div className={classes}></div>
+    <div className={classes}>{children}</div>
     )
 }
