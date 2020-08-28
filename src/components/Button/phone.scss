@@ -3,7 +3,13 @@
 @include for-size(phone) {
     .button {
         &--large {
-            height: 10em;
+            height: 15em;
         }
+
+        &--uppercase {
+            font-size: 0.7em ;
+            text-transform: uppercase;
+        }
+
     }
 }

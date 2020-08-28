@@ -1,15 +1,4 @@
-$any: (
-  '4/3',
-  '16/10',
-  '16/9',
-  '701/1051'
-);
-
-$phone: (
-  '2/3', 
-  '3/5', 
-  '9/16',
-);
+@import './constants.scss';
 
 @mixin for-size($size) {
   @if $size == any {

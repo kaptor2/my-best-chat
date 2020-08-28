@@ -1,0 +1,11 @@
+@import '../../styles/media.scss';
+
+@include for-size(any) {
+
+    .form-auth {
+        a {
+            font-size: 1.5em;
+        }
+    }
+
+}

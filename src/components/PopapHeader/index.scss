@@ -1,0 +1,15 @@
+.popap-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+
+    h2 {
+        margin: 0;
+    }
+
+    span {
+        opacity: 0.5;
+    }
+
+}

@@ -1,0 +1,23 @@
+/* the aspect ratio of the screens
+    any - all devices except phones */
+
+$any: (
+  '4/3',
+  '16/10',
+  '16/9',
+  '701/1051'
+);
+
+$phone: (
+  '2/3', 
+  '3/5', 
+  '9/16',
+);
+
+// colors
+$error-color: #f4433688;
+$error-background: #F4433609;
+$error-text-color: #f44336bd;
+
+$ok-color: #13e93788;
+$ok-background: #13e93707;

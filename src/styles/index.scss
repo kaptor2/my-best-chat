@@ -1,7 +1,12 @@
 @import '~antd/dist/antd.css';
 @import './anyDefaults.scss';
 @import './phoneDefaults.scss';
+@import './constants.scss';
 
 body, section, .app, #root {
     height: 100%;
+}
+
+#root {
+    min-width: 668px;
 }

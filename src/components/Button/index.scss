@@ -1,13 +1,9 @@
-@import 'phone.scss';
-@import 'any.scss';
+@import './phone.scss';
+@import './any.scss';
 
 .button {
     font-style: normal;
     font-weight: 500;
     line-height: 16px;
     width: 100%;
-
-    &--uppercase {
-        text-transform: uppercase;
-    }
 }
