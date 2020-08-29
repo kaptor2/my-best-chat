@@ -1,0 +1,26 @@
+@import './phone.scss';
+@import './any.scss';
+
+.form {
+
+    a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 1em 0 0 0;
+        font-style: normal;
+        font-weight: normal;
+        color: #ADADAD;
+        font-size: 1em;
+    }
+
+    a:hover {
+        color: rgb(59, 59, 59);
+    }
+
+    padding-top: 1em;
+
+    .button {
+        margin-top: 1em;
+    }
+}

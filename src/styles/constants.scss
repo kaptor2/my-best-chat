@@ -21,3 +21,26 @@ $error-text-color: #f44336bd;
 
 $ok-color: #13e93788;
 $ok-background: #13e93707;
+
+$bubble-backgroun: #3674FF;
+$bubble-shadow: rgba(54, 116, 255, 0.196733);
+$bubble-text: white;
+
+// mixins
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }  
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }  
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}

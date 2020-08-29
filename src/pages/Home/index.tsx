@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import './Home.scss';
+import { Message } from '../../components';
 
 export const Home = () => {
     const classes = classNames([
@@ -9,6 +10,11 @@ export const Home = () => {
     ]);
 
     return (
-        <div className={classes}></div>
+        <div className={classes}>
+            <Message 
+            ava='https://cdn.tproger.ru/wp-images/tproger-square-192.png' 
+            text='Как работает CSS Flexbox: наглядное введение в систему компоновки элементов на веб-странице' 
+            date='Sat Aug 29 2020 15:22:36' />
+        </div>
     )
 }

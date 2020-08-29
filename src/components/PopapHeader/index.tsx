@@ -4,8 +4,8 @@ import classNames from 'classnames';
 import './index.scss';
 
 type TPopapHeader = {
-    title: string,
-    text: string
+    title?: string,
+    text?: string
 }
 
 export const PopapHeader = ({ title, text }: TPopapHeader) => {

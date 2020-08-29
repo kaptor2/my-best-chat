@@ -10,7 +10,7 @@ type TInput = {
     type: 'password' | 'text' | 'email'
 }
 
-export const Input = ({ ok = true, placeholder = "placeholder", type }: TInput) => {
+export const Input = ({ ok = false, placeholder = "placeholder", type }: TInput) => {
     const classes = classNames([
         'input__view',
         { 'input--ok': ok === true },

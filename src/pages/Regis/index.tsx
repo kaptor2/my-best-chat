@@ -2,16 +2,15 @@ import React from 'react';
 
 import { CardBlock } from '../../components';
 
-import './index.scss';
-import { FormAuth } from '../../forms';
+import { FormReg } from '../../forms';
 
-export const Auth = () => {
+export const Regis = () => {
 
     return (
         <section className='auth'>
             <div className='auth__container'>
                 <CardBlock>
-                    <FormAuth />
+                    <FormReg />
                 </CardBlock>
             </div>
         </section>

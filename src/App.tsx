@@ -1,10 +1,22 @@
 import React from 'react';
-import { Auth } from './pages';
+import { Auth, Regis, Home } from './pages';
+import { Route } from 'react-router-dom';
+import { routing } from './constants';
 
 export const App = () => {
     return (
         <div className='app'>
-            <Auth />
+            <Route exact
+                component={Auth}
+                path={['/',
+                    `/${routing[routing.autorisation]}`
+                ]} />
+            <Route exact
+                component={Regis}
+                path={`/${routing[routing.registration]}`} />
+            <Route exact
+                component={Home}
+                path={`/mi`} />
         </div>
     )
 }

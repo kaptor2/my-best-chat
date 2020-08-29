@@ -6,10 +6,16 @@
 
     h2 {
         margin: 0;
+        font-size: 1.5em !important;
+        
     }
 
     span {
+        display: flex;
+        justify-content: center;
+        text-align: center;
         opacity: 0.5;
+        font-size: 1em;
     }
 
 }
