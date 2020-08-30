@@ -3,19 +3,23 @@ import classNames from 'classnames';
 import { CheckCircleTwoTone, CloseCircleTwoTone } from '@ant-design/icons';
 
 import './index.scss';
+import { FieldErrors } from 'react-hook-form';
 
 type TInput = {
-    ok?: boolean,
+    ok: FieldErrors,
     placeholder?: string,
-    type: 'password' | 'text' | 'email'
+    type: 'password' | 'text' | 'email',
+    name: string,
+    myRef: any
 }
 
-export const Input = ({ ok = false, placeholder = "placeholder", type }: TInput) => {
+export const Input = ({ ok, placeholder, type, name, myRef }: TInput) => {
     const classes = classNames([
         'input__view',
-        { 'input--ok': ok === true },
-        { 'input--error': ok !== true },
+        { 'input--ok': !ok},
+        { 'input--error': ok},
     ]);
+    console.log(ok);
 
     return (
         <div className="input">
@@ -24,15 +28,17 @@ export const Input = ({ ok = false, placeholder = "placeholder", type }: TInput)
                     <input
                         className={classes}
                         placeholder={placeholder}
-                        type={type}>
-                    </input>
+                        type={type}
+                        name={name}
+                        ref={myRef}/>
                     {
-                        ok ? <CheckCircleTwoTone twoToneColor='#13e937' />
+                        !ok ? <CheckCircleTwoTone twoToneColor='#13e937' />
                             : <CloseCircleTwoTone twoToneColor='#F44336' />
                     }
                 </div>
             </div>
-            <p>{!ok && 'Какая-то ошибка'}</p>
+            {ok && type === 'email' && <p> {ok.ref.validationMessage} </p>}
+            {ok && type !== 'email' && <p> {ok.message} </p>}
         </div>
     )
 }

@@ -2,14 +2,10 @@
 
 @mixin for-size($size) {
   @if $size == any {
-    @each $aspect in $any {
-      @media (min-aspect-ratio: #{$aspect}) { @content; }
-    }
+      @media (min-device-width: 769px) { @content; }
   }
   
   @if $size == phone {
-    @each $aspect in $phone {
-       @media (max-aspect-ratio: #{$aspect}) { @content; }
-    }
+       @media (max-device-width: 768px) { @content; }
   }
 }

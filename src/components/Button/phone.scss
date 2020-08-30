@@ -1,15 +1,5 @@
 @import '../../styles/media.scss';
 
 @include for-size(phone) {
-    .button {
-        &--large {
-            height: 15em;
-        }
-
-        &--uppercase {
-            font-size: 0.7em ;
-            text-transform: uppercase;
-        }
-
-    }
+    
 }

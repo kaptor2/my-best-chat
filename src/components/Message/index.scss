@@ -3,21 +3,50 @@
 @import '../../styles/constants.scss';
 
 .message {
+    $self: &;
     display: flex;
+    padding-bottom: 15px;
+
+    &--isMe {
+        flex-direction: row-reverse;
+
+        #{$self}__bubble {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+            p {
+                background: $bubble-backgroun-me;
+                border: 1px solid $bubble-border-me;
+                box-shadow: 0px 4px 4px $bubble-shadow-me;
+                border-radius: 12px 12px 0px 12px;
+                color: $bubble-text-me;
+            }
+        }
+
+    }
+
+    &__status {
+        display: flex;
+        align-items: flex-end;
+        padding: 0 0.5rem 28px 0.5rem;
+    }
+
     &__avatar {
         display: flex;
         flex-direction: column-reverse;
-        padding: 0 13px 28px 0;
+        padding: 0 13px 28px 13px;
 
         img {
             height: 100%;
-            width: 50px;
+            width: 30px;
             border-radius: 50%;
         }
     }
 
     &__bubble {
-        width: 100%;
+        max-width: 70%;
+        display: inline;
         p {
             display: inline-block;
             background: $bubble-backgroun;
@@ -26,15 +55,12 @@
             color: $bubble-text;
             padding: 13px;
             margin: 0;
-            font-size: 14px;
-            max-width: 50%;
         }
 
         span {
             display: block;
             padding-top: 8px;
             height: 28px;
-            font-size: 12px;
             line-height: 14px;
             opacity: 0.4;
         }

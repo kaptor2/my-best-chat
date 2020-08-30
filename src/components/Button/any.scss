@@ -2,13 +2,6 @@
 
 @include for-size(any) {
     .button {
-        &--large {
-            height: 5em;
-        }
-
-        &--uppercase {
-            font-size: 0.7em ;
-            text-transform: uppercase;
-        }
+        
     }
 }

@@ -1,11 +1,5 @@
 @import './media.scss';
 
 @include for-size(any) {    
-    h2 {
-        font-size: 2em !important;
-    }
-    
-    span {
-        font-size: 1.5em;
-    }
+
 }

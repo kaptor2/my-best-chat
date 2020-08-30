@@ -1,11 +1,13 @@
 @import './media.scss';
 
 @include for-size(phone) {    
+
+    span, a, p {
+        font-size: 1rem;
+    }
+
     h2 {
-        font-size: 4em !important;
+        font-size: 2rem;
     }
     
-    span {
-        font-size: 3em;
-    }
 }
