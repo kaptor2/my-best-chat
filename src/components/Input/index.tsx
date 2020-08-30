@@ -8,7 +8,7 @@ import { FieldErrors } from 'react-hook-form';
 type TInput = {
     ok: FieldErrors,
     placeholder?: string,
-    type: 'password' | 'text' | 'email',
+    type: 'password' | 'text' | 'email' | 'stillpassword',
     name: string,
     myRef: any
 }
@@ -38,7 +38,8 @@ export const Input = ({ ok, placeholder, type, name, myRef }: TInput) => {
                 </div>
             </div>
             {ok && type === 'email' && <p> {ok.ref.validationMessage} </p>}
-            {ok && type !== 'email' && <p> {ok.message} </p>}
+            {ok && type !== 'email' && type !== 'stillpassword' && <p> {ok.message} </p>}
+            {ok && name === 'stillpassword' && <p> {'Пароли не совпадают'} </p>}
         </div>
     )
 }

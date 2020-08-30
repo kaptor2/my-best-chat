@@ -1,6 +1,5 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import './index.scss';
 import { Button, Input } from '../../components/index';
 import { Form } from '../Form';
 import { NavLink } from 'react-router-dom';
@@ -10,8 +9,6 @@ export const FormAuth = () => {
     const { register, handleSubmit, errors } = useForm({ mode: "onBlur" });
 
     const onSubmit = (data: any) => alert(data);
-
-    console.log(errors);
 
     return (
         <Form onSubmit={handleSubmit(onSubmit)} title='Войти в аккаунт' text='Для входа, Вам необходимо заполнить email и пароль'>
@@ -30,7 +27,7 @@ export const FormAuth = () => {
                     required: true, min: 9,
                     pattern: {
                         value: /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}/i , 
-                        message: "Пароль должен содержать не менее 8 символов, состоять из латинских букв, цифр"}
+                        message: "Пароль должен содержать не менее 8 символов, состоять из латинских букв и цифр"}
                 })}
             />
             <Button>Войти в аккаунт</Button>
