@@ -12,7 +12,7 @@ export const Home = () => {
 
     return (
         <div className={classes}>
-            <ImagesFullScreen/>
+            
             <Message
                 ava='https://cdn.tproger.ru/wp-images/tproger-square-192.png'
                 text='Как рабоанице'

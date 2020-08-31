@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import './index.scss';
-import { Status, MyDate, SubDocuments, ImagesFullScreen } from './components';
+import { Status, MyDate, SubDocuments } from './components';
 
 type TMessage = {
     ava?: string,
