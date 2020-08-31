@@ -1,5 +1,3 @@
-@import './phone.scss';
-@import './any.scss';
 @import '../../styles/constants.scss';
 
 .message {
@@ -10,7 +8,7 @@
     &--isMe {
         flex-direction: row-reverse;
 
-        #{$self}__bubble {
+        #{$self}__content {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
@@ -22,20 +20,40 @@
                 border-radius: 12px 12px 0px 12px;
                 color: $bubble-text-me;
             }
+
+            #{$self}--befor {
+                position: relative;
+        
+                &::before{
+                    display: none;
+                }
+
+                &::after{
+                    content: '';
+                    background-color: $bubble-border-me;
+                    clip-path: polygon(0 0, 0 100%, 100% 100%);
+                    position: absolute;
+                    display: block;
+                    width: 10px;
+                    height: 10px;
+                    z-index: 1;
+                    bottom: -1px;
+                    right: -10px;
+                }
+            }
         }
 
-    }
-
-    &__status {
-        display: flex;
-        align-items: flex-end;
-        padding: 0 0.5rem 28px 0.5rem;
     }
 
     &__avatar {
         display: flex;
         flex-direction: column-reverse;
         padding: 0 13px 28px 13px;
+
+        div {
+            position: sticky;
+            bottom: 0;
+        }
 
         img {
             height: 100%;
@@ -44,7 +62,7 @@
         }
     }
 
-    &__bubble {
+    &__content {
         max-width: 70%;
         display: inline;
         p {
@@ -55,6 +73,24 @@
             color: $bubble-text;
             padding: 13px;
             margin: 0;
+        }
+
+        #{$self}--befor {
+            position: relative;
+    
+            &::before{
+                content: '';
+                border-style: solid;
+                position: absolute;
+                border-width: 15px 15px 0px 0;
+                border-color: transparent $bubble-backgroun;
+                display: block;
+                width: 0;
+                z-index: 1;
+                bottom: 0;
+                left: -10px;
+                
+            }
         }
 
         span {

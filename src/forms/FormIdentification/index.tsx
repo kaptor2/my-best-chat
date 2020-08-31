@@ -3,13 +3,8 @@ import classNames from 'classnames';
 import { ExclamationCircleTwoTone } from '@ant-design/icons';
 
 import './index.scss';
-import { Input } from '../../components';
 
-type TFormIdentification = {
-    
-}
-
-export const FormIdentification = ({}: TFormIdentification) => {
+export const FormIdentification = () => {
     const classes = classNames([
         'form-identification'
     ]);

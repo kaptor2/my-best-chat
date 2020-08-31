@@ -6,49 +6,41 @@ import { Button, Input } from '../../components/index';
 import { Form } from '../Form';
 import { routing } from '../../constants';
 import { useForm } from 'react-hook-form';
+import { validators } from '../validators';
 
 export const FormReg = () => {
 
-    const { register, handleSubmit, errors, watch } = useForm({ mode: "onBlur" });
+    const { register, handleSubmit, errors, watch } = useForm({ mode: 'all' });
     const onSubmit = (data: any) => alert(data);
 
     return (
         <Form onSubmit={handleSubmit(onSubmit)} title='Регистрация' text='Для входа в чат, вам нужно зарегистрироваться'>
             <Input ok={errors.email}
                 type="email"
-                placeholder="email"
+                placeholder="Введите email"
                 name="email"
-                myRef={register({ required: true, min: 5, pattern: /.*@.*\..+/i })} />
+                myRef={register(validators('email'))} />
             <Input
-                ok={errors.Name}
+                ok={errors.name}
                 type="text"
-                placeholder="Name"
-                name="Name"
-                myRef={register({ required: true, min: 1, pattern: /^[a-zA-ZА-Яа-я]+$/i })} />
+                placeholder="Введите имя"
+                name="name"
+                myRef={register(validators('name'))} />
             <Input
                 ok={errors.password}
                 type="password"
-                placeholder="password"
+                placeholder="Введите пароль"
                 name="password"
-                myRef={register({
-                    required: true, min: 9,
-                    pattern: {
-                        value: /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}/i , 
-                        message: "Пароль должен содержать не менее 8 символов, состоять из латинских букв и цифр"}
-                })} />
+                myRef={register(validators('password'))} />
             <Input
                 ok={errors.stillpassword}
                 type="password"
-                placeholder="stillpassword"
+                placeholder="Повторите пароль"
                 name="stillpassword"
-                myRef={register({
-                    validate: (value) => {
-                      return value === watch('password'); // value is from password2 and watch will return value from password1
-                    }
-                  })} />
+                myRef={register({ validate: (value) => value === watch('password') })} />
             <Button>Зарегистрироваться</Button>
             <NavLink to={`/${routing[routing.autorisation]}`}>Воти в аккаунт</NavLink>
         </Form>
-
+        
     )
 }

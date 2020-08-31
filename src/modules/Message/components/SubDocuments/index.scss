@@ -1,0 +1,22 @@
+.sub-documents {
+    display: flex;
+    flex-wrap: wrap;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 0.5rem;
+    padding-top: 0.5rem;
+
+    div {
+
+        :hover {
+            filter: opacity(80%);
+        }
+
+    }
+
+    img {
+        
+        height: 3rem;
+        border-radius: 15%;
+        cursor: pointer;
+    }
+}
