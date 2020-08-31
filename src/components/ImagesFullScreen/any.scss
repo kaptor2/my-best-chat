@@ -1,0 +1,30 @@
+@import '../../styles/media.scss';
+
+@include for-size(any) {
+    .images-full-screen {
+
+        &__utils {
+            top: 0;
+            right: 0;
+            display: flex;
+            position: fixed;
+            padding: 1rem;
+            grid-column-gap: 1rem;
+            z-index: 100;
+
+            span{
+                border-radius: 50%;
+                overflow: hidden;
+                font-size: 3rem !important;
+                
+                :hover{
+                    background-color: #fff;
+                }
+
+                svg {
+                    padding: .8rem;
+                }
+            }
+        }
+    }
+}

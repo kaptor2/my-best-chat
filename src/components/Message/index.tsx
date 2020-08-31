@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import './index.scss';
-import { Status, MyDate, SubDocuments } from './components';
+import { Status, MyDate, SubDocuments } from '..';
 
 type TMessage = {
     ava?: string,
@@ -31,7 +31,7 @@ export const Message = ({ ava, text, date, isMe, isReed, docs=[] }: TMessage) =>
                 <SubDocuments docs={docs} />
                 <MyDate myDate={date} />
             </div>
-            <Status isReed={isReed} />
+            <Status isReed={isReed} className='message--status'/>
             
         </div>
     )
