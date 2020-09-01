@@ -1,24 +1,23 @@
 import React from 'react';
-import { formatDistanceToNow, format } from 'date-fns';
-import { ru } from 'date-fns/locale';
+import { format, isToday, isDate } from 'date-fns';
 
 import './index.scss';
 
 type TMyDate = {
     myDate: string,
-    classes?: string,
-    formatDate?: string
+    classes?: string
 }
 
-export const MyDate = ({ myDate, classes, formatDate }: TMyDate) => {
+export const MyDate = ({ myDate, classes }: TMyDate) => {
 
-    if (!myDate) return null
+    if (!myDate && !isDate(myDate)) return null;
+    const date = Date.parse(myDate);
 
     return (
         <span className={classes}>{
-            myDate && formatDate 
-                ? format(Date.parse(myDate),formatDate)
-                : formatDistanceToNow(Date.parse(myDate), { addSuffix: true, locale: ru })
+            myDate && isToday(date) 
+                ? format(date,'HH:mm')
+                : format(date, 'dd.mm.yyyy')
         }</span>
     )
 }

@@ -1,16 +1,16 @@
+@import '../../styles/constants.scss';
+
 .status {
     span {
-        background-color: #F46B6B;
-        border-radius: 50%;
-        width: 1.2rem;
+        background-color: $online-user;
+        border-radius: 45%;
         height: 1.2rem;
-        display: block;
         font-size: 0.7rem;
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 0;
-        padding: 0;
+        padding: 0.4rem;
         color: white;
         font-weight: bold;
     }

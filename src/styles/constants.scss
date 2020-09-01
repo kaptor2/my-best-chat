@@ -15,6 +15,10 @@ $bubble-shadow-me: rgba(0, 0, 0, 0.0220444);
 $bubble-text-me: black;
 $bubble-border-me: #ECECEC;
 
+$online-user: #39eb83;
+$offline-user: rgb(247, 123, 140);
+$dialog-item-hover: rgba(0, 0, 0, 0.05);
+
 // mixins
 @mixin keyframes($animation-name) {
   @-webkit-keyframes #{$animation-name} {

@@ -9,11 +9,17 @@ type TMessage = {
     text: string,
     date: string,
     isMe?: boolean,
-    isReed?: boolean,
+    notReed?: boolean,
     docs?: string[]
 }
 
-export const Message = ({ ava, text, date, isMe, isReed, docs=[] }: TMessage) => {
+export const Message = ({ 
+    ava,
+    text,
+    date,
+    isMe,
+    notReed,
+    docs = [] }: TMessage) => {
 
     const classes = classNames([
         'message',
@@ -31,8 +37,8 @@ export const Message = ({ ava, text, date, isMe, isReed, docs=[] }: TMessage) =>
                 <SubDocuments docs={docs} />
                 <MyDate myDate={date} />
             </div>
-            <Status isReed={isReed} className='message--status'/>
-            
+            <Status notReed={notReed} className='message--status' />
+
         </div>
     )
 }

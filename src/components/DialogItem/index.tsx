@@ -3,51 +3,59 @@ import React from 'react';
 import './index.scss';
 import { MyDate, Status } from '..';
 import classNames from 'classnames';
+import { Avatar } from '../Avatar';
 
-type TDialogItem = {
-    item: {
-        user: {
-            fullname: string,
-            avatar?: string
-            online?: boolean
-        },
-        message: {
-            text: string,
-            created_at: string,
-            is_readed?: boolean,
-            count_unread?: number
-        }
+export interface IDialogItem {
+
+    text: string,
+    created_at: string,
+    notReed?: boolean,
+    count_unread?: number,
+    user: {
+        _id: string,
+        fullname: string,
+        avatar?: string
+        online?: boolean
     }
 }
 
-export const DialogItem = ({ item: {
-    user: { fullname, avatar, online },
-    message: { text, created_at, is_readed, count_unread } }
-}: TDialogItem) => {
+export const DialogItem = (props: IDialogItem) => {
+    const {
+        text,
+        created_at,
+        notReed,
+        count_unread,
+        user: { fullname,
+            avatar,
+            online }
+    } = props;
 
     return (
-        <div className='dialog__item'>
+        <div className='dialogs__item'>
             <div className={classNames([
-                "dialog__item-avatar", {
-                    'dialog--online': online
+                "dialogs__item-avatar", {
+                    'dialogs--online': online,
+                    'dialogs__item-avatar--not-read': count_unread
                 }
             ])}>
-                <img src={avatar} alt={``} />
+                <Avatar src={avatar} fullName={fullname} />
             </div>
-            <div className="dialog__item-info">
-                <div className="dialog__item-info-top">
+            <div className="dialogs__item-info">
+                <div className={classNames([
+                    'dialogs__item-info-top',
+                    { 'dialogs--not-read': count_unread }
+                ])}>
                     <b>{fullname}</b>
                     <MyDate
-                        formatDate='HH:mm'
-                        classes='dialog--date'
+                        classes='dialogs--date'
                         myDate={created_at} />
                 </div>
-                <div className='dialog__item-info-bottom'>
+                <div className='dialogs__item-info-bottom'>
                     <p>{text}</p>
                     <Status
-                        isReed={is_readed}
+                        notReed={notReed}
                         count_unread={count_unread}
-                        className='dialog--status' />
+                        className='dialogs--status' />
                 </div>
             </div>
         </div>
