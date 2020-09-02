@@ -3,9 +3,11 @@ import classNames from 'classnames';
 
 import './index.scss';
 import { Status, MyDate, SubDocuments } from '..';
+import { Avatar } from '../Avatar';
 
 type TMessage = {
     ava?: string,
+    fullName: string,
     text: string,
     date: string,
     isMe?: boolean,
@@ -14,6 +16,7 @@ type TMessage = {
 }
 
 export const Message = ({ 
+    fullName,
     ava,
     text,
     date,
@@ -29,7 +32,7 @@ export const Message = ({
         <div className={classes}>
             <div className='message__avatar'>
                 <div>
-                    <img alt='Аватарка' src={ava}></img>
+                    <Avatar fullName={fullName} src={ava}/>
                 </div>
             </div>
             <div className="message__content">

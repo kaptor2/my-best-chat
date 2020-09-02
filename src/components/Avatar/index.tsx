@@ -10,7 +10,7 @@ type TAvatar = {
 export const Avatar = ({ fullName, src }: TAvatar) => {
 
     const genCalcColor = (text: string): number => {
-        return ((text.charCodeAt(0) - 1040) * 6) + ((text.charCodeAt(3) - 1040) * 6);
+        return ((text.charCodeAt(0) - 1040) * 6) + ((text.charCodeAt(1) - 1040) * 6);
     }
 
     const gradientAvatar = (fullName: string): JSX.Element => {
@@ -19,7 +19,7 @@ export const Avatar = ({ fullName, src }: TAvatar) => {
         const cssText = `linear-gradient(
             315deg, 
             hsla( ${hOfHslaColor}, 72%, 65%, 1) 0%,
-            hsla(${hOfHslaColor}, 72%, 65%, 0.3) 100%)`
+            hsla( ${hOfHslaColor}, 72%, 65%, 0.3) 100%)`
         return <div className='avatar'
             style={{ background: cssText }}>
             {`${upFullName[0]}${upFullName[1]}`}

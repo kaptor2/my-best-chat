@@ -36,7 +36,7 @@ const arr: Array<IDialogItem> = [{
     created_at: "Sep 01 2020 19:28:44",
     user: {
         _id: '2',
-        fullname: "Элина Юзаева",
+        fullname: "Элина",
     }
 },
 {
@@ -61,16 +61,18 @@ export const Home = () => {
                 ava='https://cdn.tproger.ru/wp-images/tproger-square-192.png'
                 text='Как рабоанице'
                 date='Sat Aug 29 2020 15:22:36' 
+                fullName = 'Константин Безпалов'
                 notReed/>
             <Message
-                ava='https://cdn.tproger.ru/wp-images/tproger-square-192.png'
                 text='Как работает CSS Flexbox: наглядное введение в систему компоновки элементов на веб-странице'
                 date='Sat Aug 29 2020 15:22:36'
+                fullName = 'Константин Безпалов'
                 isMe />
             <Message
                 ava='https://cdn.tproger.ru/wp-images/tproger-square-192.png'
                 text='Как работает CSS Flexbox: наглядное введение в систему компоновки элементов на веб-странице'
                 date='Sat Aug 29 2020 15:22:36'
+                fullName = 'Константин Безпалов'
                 isMe 
                 notReed 
                 docs={['https://picsum.photos/id/102/200/200', 'https://picsum.photos/id/12/200/200', 'https://picsum.photos/id/500/200/200','https://picsum.photos/id/102/200/200', 'https://picsum.photos/id/12/200/200', 'https://picsum.photos/id/500/200/200']}
@@ -79,16 +81,19 @@ export const Home = () => {
                 ava='https://cdn.tproger.ru/wp-images/tproger-square-192.png'
                 text='Как работает CSS Flexbox: наглядное введение в систему компоновки элементов на веб-странице'
                 date='Sat Aug 29 2020 15:22:36'
+                fullName = 'Константин Безпалов'
                 isMe />
             <Message
                 ava='https://cdn.tproger.ru/wp-images/tproger-square-192.png'
                 text='Как работает CSS Flexbox: наглядное введение в систему компоновки элементов на веб-странице'
                 date='Sat Aug 29 2020 15:22:36' 
+                fullName = 'Константин Безпалов'
                 notReed />
             <Message
                 ava='https://cdn.tproger.ru/wp-images/tproger-square-192.png'
                 text='Как работает CSS Flexbox: наглядное введение в систему компоновки элементов на веб-странице'
-                date='Sat Aug 30 2020 17:35:00' />
+                fullName = 'Константин Безпалов'
+                date='Sep 01 2020 19:28:44' />
         </div>
     )
 }
