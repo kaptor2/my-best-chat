@@ -2,10 +2,11 @@ import React from 'react';
 import classNames from 'classnames';
 
 import './index.scss';
-import { Status, MyDate, SubDocuments } from '..';
+import { Status, MyDate, SubDocuments, Audio } from '..';
 import { Avatar } from '../Avatar';
 
 type TMessage = {
+    _id: string
     ava?: string,
     fullName: string,
     text: string,
@@ -16,6 +17,7 @@ type TMessage = {
 }
 
 export const Message = ({ 
+    _id,
     fullName,
     ava,
     text,
@@ -36,6 +38,7 @@ export const Message = ({
                 </div>
             </div>
             <div className="message__content">
+                <Audio _id={_id}/>
                 {text && <p className='message--befor'>{text}</p>}
                 <SubDocuments docs={docs} />
                 <MyDate myDate={date} />
