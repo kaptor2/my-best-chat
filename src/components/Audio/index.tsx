@@ -1,21 +1,30 @@
-import React from 'react';
-import classNames from 'classnames';
+import React, { useRef, useEffect } from 'react';
+import { format } from 'date-fns';
 
 import './index.scss';
 import { AudioWave } from '..';
+import { CaretRightOutlined } from '@ant-design/icons';
 
 type TAudio = {
     _id: string
 }
 
 export const Audio = ({ _id }: TAudio) => {
-    const classes = classNames([
-        'audio'
-    ]);
+
+    const waveRef = useRef<SVGLinearGradientElement>(null);
+
+    const hanleClick = () => {
+        waveRef.current && waveRef.current.setAttribute("x2","50%")
+    }
+
 
     return (
-        <div className={classes}>
-            <AudioWave _id={_id} tones={arr} />
+        <div className='audio' onClick={ hanleClick }>
+            <div className="audio__container">
+                <CaretRightOutlined style={{ fontSize: "1.5rem" }} className='audio__button'/>
+                <AudioWave animRef={waveRef} tones={arr} />
+                <span>{format(new Date(), 'HH:mm')}</span>
+            </div>
         </div>
     )
 }
