@@ -9,7 +9,7 @@ export { SubDocuments } from './SubDocuments';
 export { ImagesFullScreen } from './ImagesFullScreen';
 export { Dialogs  } from './Dialogs';
 export { Avatar } from './Avatar';
-export { Audio } from './Audio';
+export { AudioMessage } from './AudioMessage';
 export { AudioWave } from './AudioWave';
 /* TODO: test imports */
 export { Message } from './Message';

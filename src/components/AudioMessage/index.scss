@@ -1,4 +1,4 @@
-.audio {
+.audio-message {
     &__container {
         display: flex;
         background: #3674FF;
@@ -20,7 +20,7 @@
     }
 
     :hover{
-        .audio__button {
+        .audio-message__button {
             opacity: 1;
         }
         

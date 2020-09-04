@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import './index.scss';
-import { Status, MyDate, SubDocuments, Audio } from '..';
+import { Status, MyDate, SubDocuments, AudioMessage } from '..';
 import { Avatar } from '../Avatar';
 
 type TMessage = {
@@ -38,7 +38,7 @@ export const Message = ({
                 </div>
             </div>
             <div className="message__content">
-                <Audio _id={_id}/>
+                <AudioMessage _id={_id} audio={{tones: arr, url:'http://raw.githubusercontent.com/kaptor2/my-best-chat/frontend/src/assets/iphone_6-30.mp3'}}  />
                 {text && <p className='message--befor'>{text}</p>}
                 <SubDocuments docs={docs} />
                 <MyDate myDate={date} />
@@ -48,3 +48,38 @@ export const Message = ({
         </div>
     )
 }
+
+const arr: number[] = [0
+    , 0
+    , 0
+    , 0
+    , 0
+    , 0
+    , 0
+    , 50
+    , 46
+    , 41
+    , 36
+    , 32
+    , 27
+    , 32
+    , 38
+    , 33
+    , 34
+    , 28
+    , 26
+    , 61
+    , 72
+    , 85
+    , 84
+    , 77
+    , 88
+    , 85
+    , 60
+    , 79
+    , 36
+    , 20
+    , 0
+    , 0
+    , 0
+    , 0]
