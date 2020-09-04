@@ -8,15 +8,16 @@ type TAudioWave = {
     _id: string,
     duration?: number,
     currentTime?: number,
-    animRef: React.RefObject<SVGLinearGradientElement>
+    animRef: React.RefObject<SVGSVGElement>,
+    onClick?: (event: React.MouseEvent<SVGSVGElement, MouseEvent>) => void
 }
 
-export const AudioWave = ({ tones, _id, animRef }: TAudioWave) => {
+export const AudioWave = ({ tones, _id, animRef, onClick }: TAudioWave) => {
     
     return (
         <div className="AudioWave">
-            <svg height="55px" width='140px' xmlns="http://www.w3.org/2000/svg">
-                    <linearGradient ref={animRef} id={`grad${_id}`} x1="0" y1="0" x2="0" y2="0" gradientUnits="userSpaceOnUse">
+            <svg height="55px" ref={animRef} onClick={onClick} width='140px' xmlns="http://www.w3.org/2000/svg">
+                    <linearGradient  id={`grad${_id}`} x1="0" y1="0" x2="0" y2="0" gradientUnits="userSpaceOnUse">
                         <stop offset="0%" stopColor="white" stopOpacity="1" />
                         <stop  offset="100%" stopColor="white" stopOpacity="1" />
                         <stop  offset="100%" stopColor="#86acff" stopOpacity="1" />

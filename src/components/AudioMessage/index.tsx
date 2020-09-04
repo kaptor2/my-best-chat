@@ -15,14 +15,16 @@ type TAudioMessage = {
     }
 }
 
+//TODO need big correction
 export const AudioMessage = ({ _id, audio: { tones, url, duration } }: TAudioMessage) => {
 
-    const waveRef = useRef<SVGLinearGradientElement>(null);
+    const waveRef = useRef<SVGSVGElement>(null);
     const timeRef = useRef<HTMLSpanElement>(null);
     const [audioObj, setAudioObj] = useState<HTMLAudioElement>();
     const [play, setPlay] = useState(false);
 
     const onPlayMessage = () => {
+        console.log();
         audioObj || setAudioObj(new Audio(url));
         setPlay(!play);
     }
@@ -32,16 +34,16 @@ export const AudioMessage = ({ _id, audio: { tones, url, duration } }: TAudioMes
             !audioObj?.paused &&
                 window.requestAnimationFrame(loop);
             const anim = audioObj && (audioObj.currentTime / audioObj.duration) * 100;
-    
+
             switch (anim) {
                 case 100: {
-                    waveRef.current?.setAttribute("x2", `0%`);
+                    waveRef.current?.firstElementChild?.setAttribute("x2", `0%`);
                     setPlay(false);
                     timeRef.current && (timeRef.current.innerText = formattedTime(duration).toString());
                     break
                 }
                 default: {
-                    waveRef.current?.setAttribute("x2", `${isNaN(Number(anim)) ? 0 : anim}%`);
+                    waveRef.current?.firstElementChild?.setAttribute("x2", `${isNaN(Number(anim)) ? 0 : anim}%`);
                     if (audioObj && timeRef.current?.innerText !== formattedTime(audioObj.currentTime).toString())
                         timeRef.current && (timeRef.current.innerText = formattedTime(audioObj.currentTime).toString());
                 }
@@ -69,13 +71,23 @@ export const AudioMessage = ({ _id, audio: { tones, url, duration } }: TAudioMes
         'audio-message--play': play
     }]);
 
+    const onShowX = (e: React.MouseEvent) => {
+        if (audioObj) {
+            e.stopPropagation();
+            const test: number = Number(waveRef.current?.parentElement?.offsetWidth);
+            const test2: number = (e.nativeEvent.offsetX / test);
+            audioObj.currentTime = audioObj.duration * test2
+            waveRef.current?.firstElementChild?.setAttribute("x2", `${test2*100}%`);
+        } 
+    }
+
     return (
         <div className={classes} onClick={onPlayMessage}>
             <div className="audio-message__container">
                 {!play
                     ? <PlayCircleFilled style={{ fontSize: "1.5rem" }} className='audio-message__button' />
                     : <PauseCircleFilled style={{ fontSize: "1.5rem" }} className='audio-message__button' />}
-                <AudioWave _id={_id} animRef={waveRef} tones={tones} />
+                <AudioWave onClick={onShowX} _id={_id} animRef={waveRef} tones={tones} />
                 <span ref={timeRef}>{formattedTime(duration)}</span>
             </div>
         </div>
