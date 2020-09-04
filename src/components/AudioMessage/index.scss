@@ -1,4 +1,12 @@
 .audio-message {
+    $audio-message: '.audio-message';
+
+    &--play {
+        span {
+            opacity: 1!important;
+        }
+    }
+
     &__container {
         display: flex;
         background: #3674FF;
@@ -13,14 +21,15 @@
         
         span {
             margin: 0;
-            padding: 0 0 2px 0 !important;
+            padding: 0 0.5rem 2px 0.5rem !important;
             display: flex !important;
             align-items: center;
+            width: 3rem;
         }
     }
 
     :hover{
-        .audio-message__button {
+        #{$audio-message}__button {
             opacity: 1;
         }
         

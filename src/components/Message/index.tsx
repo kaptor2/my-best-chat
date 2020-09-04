@@ -9,20 +9,26 @@ type TMessage = {
     _id: string
     ava?: string,
     fullName: string,
-    text: string,
+    text?: string,
     date: string,
     isMe?: boolean,
     notReed?: boolean,
-    docs?: string[]
+    docs?: string[],
+    audio?: {
+        tones: number[],
+        url: string,
+        duration: number
+    }
 }
 
-export const Message = ({ 
+export const Message = ({
     _id,
     fullName,
     ava,
     text,
     date,
     isMe,
+    audio,
     notReed,
     docs = [] }: TMessage) => {
 
@@ -34,11 +40,11 @@ export const Message = ({
         <div className={classes}>
             <div className='message__avatar'>
                 <div>
-                    <Avatar fullName={fullName} src={ava}/>
+                    <Avatar fullName={fullName} src={ava} />
                 </div>
             </div>
             <div className="message__content">
-                <AudioMessage _id={_id} audio={{tones: arr, url:'http://raw.githubusercontent.com/kaptor2/my-best-chat/frontend/src/assets/iphone_6-30.mp3'}}  />
+                {audio && <AudioMessage _id={_id} audio={audio} />}
                 {text && <p className='message--befor'>{text}</p>}
                 <SubDocuments docs={docs} />
                 <MyDate myDate={date} />
@@ -48,38 +54,3 @@ export const Message = ({
         </div>
     )
 }
-
-const arr: number[] = [0
-    , 0
-    , 0
-    , 0
-    , 0
-    , 0
-    , 0
-    , 50
-    , 46
-    , 41
-    , 36
-    , 32
-    , 27
-    , 32
-    , 38
-    , 33
-    , 34
-    , 28
-    , 26
-    , 61
-    , 72
-    , 85
-    , 84
-    , 77
-    , 88
-    , 85
-    , 60
-    , 79
-    , 36
-    , 20
-    , 0
-    , 0
-    , 0
-    , 0]
