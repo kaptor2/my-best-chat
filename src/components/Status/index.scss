@@ -1,6 +1,7 @@
 @import '../../styles/constants.scss';
 
 .status {
+
     span {
         background-color: $online-user;
         border-radius: 45%;
@@ -13,5 +14,9 @@
         padding: 0.4rem;
         color: white;
         font-weight: bold;
+    }
+
+    img {
+        padding-right: 1rem;
     }
 }

@@ -60,7 +60,7 @@ export const Home = () => {
             <Message
                 _id="1"
                 ava='https://cdn.tproger.ru/wp-images/tproger-square-192.png'
-                audio={{ tones: tones, url: 'http://raw.githubusercontent.com/kaptor2/my-best-chat/frontend/src/assets/iphone_6-30.mp3', duration:26000 }}
+                audio={{ tones: tones, url: 'https://raw.githubusercontent.com/kaptor2/my-best-chat/frontend/src/assets/receive_sms.mp3', duration:26000 }}
                 date='Sat Aug 29 2020 15:22:36'
                 key={1}
                 fullName='Константин Безпалов'

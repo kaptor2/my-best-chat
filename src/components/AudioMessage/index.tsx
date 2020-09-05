@@ -55,9 +55,6 @@ export const AudioMessage = ({ _id, audio: { tones, url, duration } }: TAudioMes
             loop();
         } else {
             audioObj?.pause()
-            audioObj && (audioObj.currentTime = 0);
-            waveRef.current?.setAttribute("x2", `0%`);
-            timeRef.current && (timeRef.current.innerText = formattedTime(duration).toString());
         }
     }, [play, audioObj, duration])
 
@@ -78,6 +75,7 @@ export const AudioMessage = ({ _id, audio: { tones, url, duration } }: TAudioMes
             const test2: number = (e.nativeEvent.offsetX / test);
             audioObj.currentTime = audioObj.duration * test2
             waveRef.current?.firstElementChild?.setAttribute("x2", `${test2*100}%`);
+            timeRef.current && (timeRef.current.innerText = formattedTime(audioObj.currentTime).toString());
         } 
     }
 
