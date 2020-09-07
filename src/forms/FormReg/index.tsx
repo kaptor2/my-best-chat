@@ -39,7 +39,7 @@ export const FormReg = () => {
                 name="stillpassword"
                 myRef={register({ validate: (value) => value === watch('password') })} />
             <Button>Зарегистрироваться</Button>
-            <NavLink to={`/${routing[routing.autorisation]}`}>Воти в аккаунт</NavLink>
+            <NavLink to={`/${routing[routing.authorization]}`}>Воти в аккаунт</NavLink>
         </Form>
         
     )

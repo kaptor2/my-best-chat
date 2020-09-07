@@ -103,7 +103,7 @@ export const Home = () => {
                 _id="6"
                 key={6}
                 ava='https://cdn.tproger.ru/wp-images/tproger-square-192.png'
-                audio={{ tones: tones,duration:26000, url: 'http://raw.githubusercontent.com/kaptor2/my-best-chat/frontend/src/assets/iphone_6-30.mp3' }}
+                audio={{ tones: tones,duration:26000, url: 'https://raw.githubusercontent.com/kaptor2/my-best-chat/frontend/src/assets/iphone_6-30.mp3' }}
                 fullName='Константин Безпалов'
                 date='Sep 01 2020 19:28:44' />
         </div>

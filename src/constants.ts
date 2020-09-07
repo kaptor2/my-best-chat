@@ -1,4 +1,4 @@
 export enum routing {
-    autorisation,
+    authorization,
     registration
 }

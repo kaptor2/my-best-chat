@@ -1,4 +1,6 @@
 // colors
+$date-text: white;
+
 $error-color: #f4433688;
 $error-background: #F4433609;
 $error-text-color: #f44336bd;
@@ -6,14 +8,14 @@ $error-text-color: #f44336bd;
 $ok-color: #13e93788;
 $ok-background: #13e93707;
 
-$bubble-backgroun: #3674FF;
-$bubble-shadow: rgba(54, 116, 255, 0.196733);
+$bubble-backgroun: #1c1f28;
+$bubble-shadow: rgba(0,0,0,0.75);
 $bubble-text: white;
 
-$bubble-backgroun-me: white;
-$bubble-shadow-me: rgba(0, 0, 0, 0.0220444);
-$bubble-text-me: black;
-$bubble-border-me: #ECECEC;
+$bubble-backgroun-me: #4e4e4e;
+$bubble-shadow-me: rgba(0,0,0,0.75);
+$bubble-text-me: white;
+$bubble-border-me: #4e4e4e;
 
 $online-user: #39eb83;
 $offline-user: rgb(247, 123, 140);

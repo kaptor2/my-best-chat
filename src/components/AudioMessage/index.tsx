@@ -19,17 +19,16 @@ export const AudioMessage = ({ _id, audio: { tones, url, duration } }: TAudioMes
 
     const waveRef = useRef<SVGSVGElement>(null);
     const timeRef = useRef<HTMLSpanElement>(null);
-    const [audioObj, setAudioObj] = useState<HTMLAudioElement>();
-    const [play, setPlay] = useState(false);
+    const audioObj = useRef<HTMLAudioElement>(new Audio(url));
+    const [play, setPlay] = useState<boolean>(false);
 
     const onPlayMessage = () => {
-        audioObj || setAudioObj(new Audio(url));
         setPlay(!play);
     }
 
     useEffect(() => {
         if (play) {
-            audioObj?.play();
+            audioObj.current.play();
             audioObj &&
             loop({
                 audioObj,
@@ -39,9 +38,17 @@ export const AudioMessage = ({ _id, audio: { tones, url, duration } }: TAudioMes
                 setPlay
             });
         } else {
-            audioObj?.pause()
+            audioObj.current.pause();
         }
-    }, [play, audioObj, duration])
+    },[play, duration])
+
+    useEffect(()=>{
+        const removeAudioObj = audioObj.current;
+        return () => {
+            removeAudioObj.pause();
+            removeAudioObj.src = '';
+        }
+    },[])
 
     const onRewind = (e: React.MouseEvent) => {
         if (audioObj) rewind(e, waveRef, audioObj, timeRef);
@@ -54,9 +61,9 @@ export const AudioMessage = ({ _id, audio: { tones, url, duration } }: TAudioMes
     return (
         <div className={classes} onClick={onPlayMessage}>
             <div className="audio-message__container">
-                {!play
+                { !play
                     ? <PlayCircleFilled style={{ fontSize: "1.5rem" }} className='audio-message__button' />
-                    : <PauseCircleFilled style={{ fontSize: "1.5rem" }} className='audio-message__button' />}
+                    : <PauseCircleFilled style={{ fontSize: "1.5rem" }} className='audio-message__button' /> }
                 <AudioWave onClick={onRewind} _id={_id} animRef={waveRef} tones={tones} />
                 <span ref={timeRef}>{formattedTime(duration)}</span>
             </div>

@@ -9,14 +9,14 @@ export const App = () => {
             <Route exact
                 component={Auth}
                 path={['/',
-                    `/${routing[routing.autorisation]}`
+                    `/${routing[routing.authorization]}`
                 ]} />
             <Route exact
                 component={Regis}
                 path={`/${routing[routing.registration]}`} />
             <Route exact
                 component={Home}
-                path={`/mi`} />
+                path={`/im`} />
         </div>
     )
 }

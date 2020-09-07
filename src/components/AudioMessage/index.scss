@@ -1,18 +1,23 @@
+@import '../../styles/constants.scss';
+
 .audio-message {
     $audio-message: '.audio-message';
-
+    width: 16rem;
     &--play {
         span {
-            opacity: 1!important;
+            color: #ee1c3a !important;
+            font-weight: bold;
         }
     }
 
     &__container {
         display: flex;
-        background: #3674FF;
-        box-shadow: 0px 5px 5px rgba(54, 116, 255, 0.196733);
+        background: #1c1f28;
+        box-shadow: 0px 5px 5px $bubble-shadow;
         border-radius: 12px 12px 12px 0px;
-        color: white;
+        color: #fff;
+        opacity: 1 !important;
+        font-weight: 400;
         padding: 5px 13px 5px 13px;
         margin: 0;
         position: relative;
@@ -21,16 +26,18 @@
         
         span {
             margin: 0;
-            padding: 0 0.5rem 2px 0.5rem !important;
+            padding: 0 0.5rem 0 0.5rem !important;
             display: flex !important;
             align-items: center;
-            width: 3rem;
+            
+            color: #fff;
+            opacity: 1 !important;
         }
     }
 
     :hover{
         #{$audio-message}__button {
-            opacity: 1;
+           color: #ee1c3a;
         }
         
         cursor: pointer;

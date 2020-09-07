@@ -2,7 +2,7 @@ import React from 'react';
 import { format, addSeconds } from 'date-fns';
 
 type TLoop = {
-    audioObj: HTMLAudioElement,
+    audioObj: React.RefObject<HTMLAudioElement>,
     waveRef: React.RefObject<SVGSVGElement>,
     timeRef: React.RefObject<any>,
     duration: number,
@@ -13,10 +13,10 @@ export const loop = (arg: TLoop) => {
 
     const { audioObj, waveRef, timeRef, duration, setPlay } = arg;
 
-    !audioObj?.paused &&
+    audioObj.current && !audioObj.current.paused &&
         window.requestAnimationFrame(() => loop(arg));
 
-    const anim = audioObj && (audioObj.currentTime / audioObj.duration) * 100;
+    const anim = audioObj.current && (audioObj.current.currentTime / audioObj.current.duration) * 100;
 
     switch (anim) {
         case 100: {
@@ -26,9 +26,9 @@ export const loop = (arg: TLoop) => {
             break
         }
         default: {
-            setPositionWave(anim, waveRef)
-            if (audioObj && timeRef.current?.innerText !== formattedTime(audioObj.currentTime).toString())
-                setPositionTime(audioObj.currentTime, timeRef);
+            anim && setPositionWave(anim, waveRef);
+            if (audioObj.current && timeRef.current.innerText !== formattedTime(audioObj.current.currentTime).toString())
+                setPositionTime(audioObj.current.currentTime, timeRef);
         }
     }
 }
@@ -54,15 +54,14 @@ export const formattedTime = (seconds: number) => {
 export const rewind = (
     e: React.MouseEvent,
     waveRef: React.RefObject<SVGSVGElement>,
-    audioObj: HTMLAudioElement,
+    audioObj: React.RefObject<HTMLAudioElement>,
     timeRef: React.RefObject<any>,
 ) => {
 
     e.stopPropagation();
-    const WidthComponent: number = Number(waveRef.current?.parentElement?.offsetWidth);
-    const percentRewind: number = (e.nativeEvent.offsetX / WidthComponent);
-    audioObj.currentTime = audioObj.duration * percentRewind;
+    const widthComponent: number = Number(waveRef.current?.parentElement?.offsetWidth);
+    const percentRewind: number = (e.nativeEvent.offsetX / widthComponent);
+    audioObj.current && (audioObj.current.currentTime = audioObj.current.duration * percentRewind);
     setPositionWave(percentRewind * 100, waveRef);
-    setPositionTime(audioObj.currentTime, timeRef);
-
+    audioObj.current && setPositionTime(audioObj.current.currentTime, timeRef);
 }
