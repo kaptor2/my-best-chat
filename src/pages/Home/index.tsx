@@ -86,7 +86,7 @@ export const Home = () => {
             <Message
                 _id="4"
                 ava='https://cdn.tproger.ru/wp-images/tproger-square-192.png'
-                text='Как работает CSS Flexbox: наглядное введение в систему компоновки элементов на веб-странице'
+                audio={{ tones: tones,duration:26000, url: 'https://raw.githubusercontent.com/kaptor2/my-best-chat/frontend/src/assets/iphone_6-30.mp3' }}
                 date='Sat Aug 29 2020 15:22:36'
                 fullName='Константин Безпалов'
                 key={4}

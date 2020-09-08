@@ -19,7 +19,6 @@ export const Input = ({ ok, placeholder, type, name, myRef }: TInput) => {
         { 'input--ok': !ok},
         { 'input--error': ok},
     ]);
-    console.log(ok);
 
     return (
         <div className="input">

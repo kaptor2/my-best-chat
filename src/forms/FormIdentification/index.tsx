@@ -14,7 +14,6 @@ export const FormIdentification = () => {
             <ExclamationCircleTwoTone style={{ fontSize: '50px' }} />
             <h2>Подтвердите свой аккаунт</h2>
             <p>На Вашу почту отправлено письмо с одноразовым кодом, введите его в это поле.</p>
-            {/*<Input type='text' placeholder='Введите код' ></Input>*/}
         </div>
     )
 }

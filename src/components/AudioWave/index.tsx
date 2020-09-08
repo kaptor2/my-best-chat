@@ -1,8 +1,5 @@
 import React from 'react';
 
-import './index.scss';
-
-
 type TAudioWave = {
     tones: number[];
     _id: string,
@@ -18,10 +15,10 @@ export const AudioWave = ({ tones, _id, animRef, onClick }: TAudioWave) => {
         <div className="AudioWave">
             <svg height="55px" ref={animRef} onClick={onClick} width='140px' xmlns="http://www.w3.org/2000/svg">
                     <linearGradient  id={`grad${_id}`} x1="0" y1="0" x2="0" y2="0" gradientUnits="userSpaceOnUse">
-                        <stop offset="0%" stopColor="#ee1c3a" stopOpacity="1" />
-                        <stop  offset="100%" stopColor="#ee1c3a" stopOpacity="1" />
+                        <stop offset="0%" stopColor="white" stopOpacity="1" />
                         <stop  offset="100%" stopColor="white" stopOpacity="1" />
-                        <stop offset="100%" stopColor="white" stopOpacity="1" />
+                        <stop  offset="100%" stopColor="#0F3997" stopOpacity="1" />
+                        <stop offset="100%" stopColor="#0F3997" stopOpacity="1" />
                     </linearGradient>
           
                 <g fill={`url(#grad${_id})`} stroke={`url(#grad${_id})`}>

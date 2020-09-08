@@ -19,7 +19,7 @@ export const AudioMessage = ({ _id, audio: { tones, url, duration } }: TAudioMes
 
     const waveRef = useRef<SVGSVGElement>(null);
     const timeRef = useRef<HTMLSpanElement>(null);
-    const audioObj = useRef<HTMLAudioElement>(new Audio(url));
+    const audioObj = useRef<HTMLAudioElement>(new Audio());
     const [play, setPlay] = useState<boolean>(false);
 
     const onPlayMessage = () => {
@@ -44,14 +44,16 @@ export const AudioMessage = ({ _id, audio: { tones, url, duration } }: TAudioMes
 
     useEffect(()=>{
         const removeAudioObj = audioObj.current;
+        removeAudioObj.preload = 'none';
+        removeAudioObj.src = url;
         return () => {
             removeAudioObj.pause();
             removeAudioObj.src = '';
         }
-    },[])
+    },[url])
 
     const onRewind = (e: React.MouseEvent) => {
-        if (audioObj) rewind(e, waveRef, audioObj, timeRef);
+        audioObj.current.readyState && rewind(e, waveRef, audioObj, timeRef);
     }
 
     const classes = classNames(['audio-message', {
