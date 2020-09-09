@@ -19,7 +19,7 @@ export interface IDialogItem {
     }
 }
 
-export const DialogItem = (props: IDialogItem) => {
+export const DialogItem: React.FC<IDialogItem> = (props) => {
     const {
         text,
         created_at,

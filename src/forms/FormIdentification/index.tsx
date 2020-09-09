@@ -4,7 +4,7 @@ import { ExclamationCircleTwoTone } from '@ant-design/icons';
 
 import './index.scss';
 
-export const FormIdentification = () => {
+export const FormIdentification: React.FC<null> = () => {
     const classes = classNames([
         'form-identification'
     ]);

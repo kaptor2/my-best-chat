@@ -4,7 +4,7 @@ import { CardBlock } from '../../components';
 
 import { FormReg } from '../../forms';
 
-export const Regis = () => {
+export const Regis: React.FC<null> = () => {
 
     return (
         <section className='auth'>

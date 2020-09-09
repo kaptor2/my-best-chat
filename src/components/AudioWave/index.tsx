@@ -9,7 +9,7 @@ type TAudioWave = {
     onClick?: (event: React.MouseEvent<SVGSVGElement, MouseEvent>) => void
 }
 
-export const AudioWave = ({ tones, _id, animRef, onClick }: TAudioWave) => {
+export const AudioWave: React.FC<TAudioWave> = ({ tones, _id, animRef, onClick }) => {
     
     return (
         <div className="AudioWave">

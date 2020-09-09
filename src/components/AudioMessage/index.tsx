@@ -15,7 +15,7 @@ type TAudioMessage = {
     }
 }
 
-export const AudioMessage = ({ _id, audio: { tones, url, duration } }: TAudioMessage) => {
+export const AudioMessage: React.FC<TAudioMessage> = ({ _id, audio: { tones, url, duration } }) => {
 
     const waveRef = useRef<SVGSVGElement>(null);
     const timeRef = useRef<HTMLSpanElement>(null);

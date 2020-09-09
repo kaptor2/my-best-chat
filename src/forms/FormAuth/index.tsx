@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { routing } from '../../constants';
 import { validators } from '../validators';
 
-export const FormAuth = () => {
+export const FormAuth: React.FC<any> = () => {
     const { register, handleSubmit, errors } = useForm({ mode: "onBlur" });
 
     const onSubmit = (data: any) => alert(data);

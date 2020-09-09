@@ -19,7 +19,7 @@ const images = [
   }
 ];
 
-export const ImagesFullScreen = () => {
+export const ImagesFullScreen: React.FC<null> = () => {
 
   return (
     <div className='images-full-screen'>

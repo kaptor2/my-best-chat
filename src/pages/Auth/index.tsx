@@ -5,7 +5,7 @@ import { CardBlock } from '../../components';
 import './index.scss';
 import { FormAuth } from '../../forms';
 
-export const Auth = () => {
+export const Auth: React.FC<null> = () => {
 
     return (
         <section className='auth'>

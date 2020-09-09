@@ -9,7 +9,7 @@ type TButton = {
     onClick?: () => {}
 }
 
-export const Button = ({ children, onClick, type }: TButton) => {
+export const Button: React.FC<TButton> = ({ children, onClick, type }) => {
     const classes = classNames([
         'button', 
         'btn btn-primary'

@@ -3,7 +3,7 @@ import { Auth, Regis, Home } from './pages';
 import { Route } from 'react-router-dom';
 import { routing } from './constants';
 
-export const App = () => {
+export const App: React.FC<any> = () => {
     return (
         <div className='app'>
             <Route exact

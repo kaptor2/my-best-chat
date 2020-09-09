@@ -7,15 +7,15 @@ type TDialogs = {
     items: Array<IDialogItem>
 }
 
-export const Dialogs = ({ items }: TDialogs) => {
+export const Dialogs: React.FC<TDialogs> = ({ items }) => {
 
-    const messages = [...items].sort((d1, d2) => {
+    const dialogs = [...items].sort((d1, d2) => {
         return Date.parse(d2.created_at) - Date.parse(d1.created_at);
     });
 
     return (
         <div className='dialogs'>
-            { messages.map(item => <DialogItem key={item.user._id} {...item} />) }
+            { dialogs.map(item => <DialogItem key={item.user._id} {...item} />) }
         </div>
     )
 }

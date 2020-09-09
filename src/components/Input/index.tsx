@@ -13,7 +13,7 @@ type TInput = {
     myRef: any
 }
 
-export const Input = ({ ok, placeholder, type, name, myRef }: TInput) => {
+export const Input: React.FC<TInput> = ({ ok, placeholder, type, name, myRef }) => {
     const classes = classNames([
         'input__view',
         { 'input--ok': !ok},

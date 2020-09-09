@@ -10,13 +10,11 @@ type TForm = {
     onSubmit: any
 }
 
-export const Form = ({ children, title, text, onSubmit }: TForm) => {
-    return (
-        <>
-            {title && text && <PopapHeader title={title} text={text} />}
-            <form onSubmit={onSubmit}className='form'>
-                {children}
-            </form>
-        </>
-    )
-}
+export const Form: React.FC<TForm> = ({ children, title, text, onSubmit }) => (
+    <>
+        {title && text && <PopapHeader title={title} text={text} />}
+        <form onSubmit={onSubmit} className='form'>
+            {children}
+        </form>
+    </>
+)

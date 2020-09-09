@@ -7,7 +7,7 @@ type TAvatar = {
     src?: string
 }
 
-export const Avatar = ({ fullName, src }: TAvatar) => {
+export const Avatar: React.FC<TAvatar> = ({ fullName, src }) => {
 
     const genCalcColor = (text: string): number => {
         return ((text.charCodeAt(0) - 1040) * 6) + ((text.charCodeAt(1) - 1040) * 6);

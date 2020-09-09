@@ -8,7 +8,7 @@ import { routing } from '../../constants';
 import { useForm } from 'react-hook-form';
 import { validators } from '../validators';
 
-export const FormReg = () => {
+export const FormReg: React.FC<any> = () => {
 
     const { register, handleSubmit, errors, watch } = useForm({ mode: 'all' });
     const onSubmit = (data: any) => alert(data);

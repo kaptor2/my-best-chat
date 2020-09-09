@@ -6,7 +6,7 @@ type TSubDocuments = {
     docs?: string[]
 }
 
-export const SubDocuments = ({ docs }: TSubDocuments) => {
+export const SubDocuments: React.FC<TSubDocuments> = ({ docs }) => {
 
     if (!docs?.length) return null;
 

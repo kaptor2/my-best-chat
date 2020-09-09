@@ -11,5 +11,5 @@ export { Dialogs  } from './Dialogs';
 export { Avatar } from './Avatar';
 export { AudioMessage } from './AudioMessage';
 export { AudioWave } from './AudioWave';
-/* TODO: test imports */
 export { Message } from './Message';
+export { Messages } from './Messages';

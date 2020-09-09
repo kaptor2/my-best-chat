@@ -8,15 +8,15 @@ type TMyDate = {
     classes?: string
 }
 
-export const MyDate = ({ myDate, classes }: TMyDate) => {
+export const MyDate: React.FC<TMyDate> = ({ myDate, classes }) => {
 
     if (!myDate && !isDate(myDate)) return null;
     const date = Date.parse(myDate);
 
     return (
         <span className={classes}>{
-            myDate && isToday(date) 
-                ? format(date,'HH:mm')
+            myDate && isToday(date)
+                ? format(date, 'HH:mm')
                 : format(date, 'dd.mm.yyyy')
         }</span>
     )

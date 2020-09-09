@@ -5,7 +5,7 @@ import './index.scss';
 import { Status, MyDate, SubDocuments, AudioMessage } from '..';
 import { Avatar } from '../Avatar';
 
-type TMessage = {
+export type TMessage = {
     _id: string
     ava?: string,
     fullName: string,
@@ -21,7 +21,7 @@ type TMessage = {
     }
 }
 
-export const Message = ({
+export const Message: React.FC<TMessage> = ({
     _id,
     fullName,
     ava,
