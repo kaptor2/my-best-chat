@@ -1,15 +1,16 @@
 @import '../../styles/constants.scss';
 
-.header-status{
+.header-status {
     $block: &;
     position: relative;
 
-    p{
+    p {
         margin: 0;
         padding: 0;
+        line-height: 1.5rem;
     }
 
-    &__container{
+    &__container {
         position: absolute;
         z-index: 1;
         width: 100%;
@@ -24,7 +25,7 @@
             font-weight: bold;
         }
 
-        #{$block}--online{
+        #{$block}--online {
             &::before {
                 content: '';
                 display: inline-block;
@@ -35,7 +36,7 @@
             }
         }
 
-        #{$block}--offline{
+        #{$block}--offline {
             &::before {
                 content: '';
                 display: inline-block;
