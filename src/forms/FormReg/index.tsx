@@ -14,7 +14,9 @@ export const FormReg: React.FC<any> = () => {
     const onSubmit = (data: any) => alert(data);
 
     return (
-        <FormContainer onSubmit={handleSubmit(onSubmit)} title='Регистрация' text='Для входа в чат, вам нужно зарегистрироваться'>
+        <FormContainer onSubmit={handleSubmit(onSubmit)} 
+            title='Регистрация' 
+            text='Для входа в чат, вам нужно зарегистрироваться'>
             <Input ok={errors.email}
                 type="email"
                 placeholder="Введите email"
