@@ -2,18 +2,11 @@
 
 .home {
    background-color: #F4F7FD;
-   max-width: 1024px;
+   max-width: 1500px;
    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.233);
    z-index: 1;
 
-   
-   &--background {
-      background-color: white;
-   }
-
-   &--background-header {
-      background-color: #f4f7fd;
-   }
+   &--background-header { background-color: #f4f7fd; }
 
    @include for-size(any) {  
       display: grid;
@@ -29,33 +22,11 @@
       &--dialogs-grid-position { grid-area: 2 / 1 / 4 / 2; }
       &--messages-grid-position { grid-area: 2 / 2 / 3 / 3; }
       &--new-message-grid-position { grid-area: 3 / 2 / 4 / 3; }
+
+      &--background { background-color: white; }
    }
 
    @include for-size(phone) {  
-      &--new-dialog-grid-position {
-         display: none;
-      }
-
-      &--status-companion-grid-position {
-         height: 4rem;
-      }
-
-      &--dialogs-grid-position {
-         transition: all 5s ease;
-         height: 100%;
-         position: absolute;
-         top: 0;
-         z-index: 10;
-         left: 0%;
-      }
-
-      &--messages-grid-position {
-         height: calc(100vh - 4rem - 5rem);
-      }
-
-      &--new-message-grid-position {
-         height: 5rem;
-      }
 
    }
 }

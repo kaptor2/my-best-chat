@@ -18,6 +18,7 @@
         &--span {
             font-weight: 400;
             padding-left: 1rem;
+            font-size: 1rem;
         }
     }
 
@@ -33,7 +34,7 @@
         transition: 0.2s 0s ease;
 
         &:hover {
-            background-color: $dialog-item-hover;
+            background-color: #55555527;
         }
     }
 }

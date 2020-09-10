@@ -4,6 +4,7 @@
     "created_at": "Aug 31 2020 20:25:44",
     "count_unread": 5,
     "user": {
+        "online": true,
         "_id": "1",
         "fullname": "Stas Bagretsov",
         "avatar": "https://miro.medium.com/fit/c/96/96/1*PZq5KugR9DJaBDi_AunPaQ.png"

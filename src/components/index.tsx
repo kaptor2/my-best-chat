@@ -15,3 +15,4 @@ export { Message } from './Message';
 export { Messages } from './Messages';
 export { NewDialog } from './NewDialog';
 export { FormContainer } from './FormContainer';
+export { HeaderStatus } from './HeaderStatus';

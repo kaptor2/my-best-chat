@@ -1,0 +1,55 @@
+@import '../../styles/constants.scss';
+
+.header-status{
+    $block: &;
+    position: relative;
+
+    p{
+        margin: 0;
+        padding: 0;
+    }
+
+    &__container{
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+
+        #{$block}__full-name {
+            color: #636363;
+            font-weight: bold;
+        }
+
+        #{$block}--online{
+            &::before {
+                content: '';
+                display: inline-block;
+                border-radius: 50%;
+                width: 6px;
+                height: 6px;
+                background-color: #39eb83;
+            }
+        }
+
+        #{$block}--offline{
+            &::before {
+                content: '';
+                display: inline-block;
+                border-radius: 50%;
+                width: 6px;
+                height: 6px;
+                background-color: #f77b8c;
+            }
+        }
+
+    }
+
+    &__buttons {
+        position: absolute;
+        z-index: 2;
+    }
+}
