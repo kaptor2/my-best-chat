@@ -13,3 +13,5 @@ export { AudioMessage } from './AudioMessage';
 export { AudioWave } from './AudioWave';
 export { Message } from './Message';
 export { Messages } from './Messages';
+export { NewDialog } from './NewDialog';
+export { FormContainer } from './FormContainer';

@@ -1,7 +1,6 @@
 import React from 'react';
-import classNames from 'classnames';
 import './Home.scss';
-import { Dialogs, Messages } from '../../components';
+import { Dialogs, Messages, NewDialog } from '../../components';
 import { IDialogItem } from '../../components/DialogItem';
 import dialogsJSON from './dialog_items.json';
 import messagesJSON from './messages.json';
@@ -11,14 +10,13 @@ const dialogs: Array<IDialogItem> = dialogsJSON;
 const messages: Array<TMessage> = messagesJSON;
 
 export const Home: React.FC<null> = () => {
-    const classes = classNames([
-        'home'
-    ]);
-
     return (
-        <div className={classes}>
-            <Dialogs items={dialogs} />
-            <Messages items={messages} />
+        <div className='home'>
+            <NewDialog className = 'home--new-dialog-grid-position home--background '/>
+            <div className = 'home--status-companion-grid-position home--background'></div>
+            <Dialogs className='home--dialogs-grid-position home--background' items={dialogs}/>
+            <Messages className='home--messages-grid-position home--background' items={messages}/>
+            <div className='home--new-message-grid-position home--background'></div>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './index.scss';
-import { PopapHeader } from '../../components';
+import { PopapHeader } from '..';
 
 type TForm = {
     children: any[] | any,
@@ -10,7 +10,7 @@ type TForm = {
     onSubmit: any
 }
 
-export const Form: React.FC<TForm> = ({ children, title, text, onSubmit }) => (
+export const FormContainer: React.FC<TForm> = ({ children, title, text, onSubmit }) => (
     <>
         {title && text && <PopapHeader title={title} text={text} />}
         <form onSubmit={onSubmit} className='form'>

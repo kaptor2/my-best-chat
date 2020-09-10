@@ -5,7 +5,7 @@
     transition: 0.2s 0s ease;
     cursor: pointer;
     display: flex;
-    padding: 0.5rem;
+    padding: 0.7rem 1rem;
 
     &:hover {
         background-color: $dialog-item-hover;
@@ -20,8 +20,8 @@
     &-avatar {
         position: relative;
         .avatar {
-            width: 3.5rem;
-            height: 3.5rem;
+            width: 2.5rem;
+            height: 2.5rem;
         }
 
         &:before{

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Button, Input } from '../../components/index';
-import { Form } from '../Form';
+import { FormContainer } from '../../components/FormContainer';
 import { NavLink } from 'react-router-dom';
 import { routing } from '../../constants';
 import { validators } from '../validators';
@@ -12,7 +12,7 @@ export const FormAuth: React.FC<any> = () => {
     const onSubmit = (data: any) => alert(data);
 
     return (
-        <Form onSubmit={handleSubmit(onSubmit)} title='Войти в аккаунт' text='Для входа, Вам необходимо заполнить email и пароль'>
+        <FormContainer onSubmit={handleSubmit(onSubmit)} title='Войти в аккаунт' text='Для входа, Вам необходимо заполнить email и пароль'>
             <Input
                 placeholder='Почтовый адрес'
                 name="email"
@@ -28,6 +28,6 @@ export const FormAuth: React.FC<any> = () => {
             />
             <Button>Войти в аккаунт</Button>
             <NavLink to={`/${routing[routing.registration]}`}>Зарегистрироваться</NavLink>
-        </Form>
+        </FormContainer>
     )
 }

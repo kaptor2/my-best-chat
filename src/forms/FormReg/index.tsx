@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import './index.scss';
 import { Button, Input } from '../../components/index';
-import { Form } from '../Form';
+import { FormContainer } from '../../components/FormContainer';
 import { routing } from '../../constants';
 import { useForm } from 'react-hook-form';
 import { validators } from '../validators';
@@ -14,7 +14,7 @@ export const FormReg: React.FC<any> = () => {
     const onSubmit = (data: any) => alert(data);
 
     return (
-        <Form onSubmit={handleSubmit(onSubmit)} title='Регистрация' text='Для входа в чат, вам нужно зарегистрироваться'>
+        <FormContainer onSubmit={handleSubmit(onSubmit)} title='Регистрация' text='Для входа в чат, вам нужно зарегистрироваться'>
             <Input ok={errors.email}
                 type="email"
                 placeholder="Введите email"
@@ -40,7 +40,7 @@ export const FormReg: React.FC<any> = () => {
                 myRef={register({ validate: (value) => value === watch('password') })} />
             <Button>Зарегистрироваться</Button>
             <NavLink to={`/${routing[routing.authorization]}`}>Воти в аккаунт</NavLink>
-        </Form>
+        </FormContainer>
         
     )
 }
