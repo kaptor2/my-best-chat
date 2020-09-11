@@ -12,8 +12,6 @@
       display: grid;
       grid-template-columns: 20rem 1fr;
       grid-template-rows: 4rem calc(100% - 4rem - 5rem) 5rem;
-      grid-column-gap: 1px;
-      grid-row-gap: 1px;
       height: 95%; 
       max-height: 95%;
 

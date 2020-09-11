@@ -4,7 +4,8 @@ import {
     Dialogs, 
     Messages, 
     NewDialog, 
-    HeaderStatus } from '../../components';
+    HeaderStatus, 
+    InputMessage} from '../../components';
 import { IDialogItem } from '../../components/DialogItem';
 import dialogsJSON from './dialog_items.json';
 import messagesJSON from './messages.json';
@@ -20,7 +21,7 @@ export const Home: React.FC<null> = () => {
             <HeaderStatus className = 'home--status-companion-grid-position home--background-header' />
             <Dialogs className='home--dialogs-grid-position home--background' items={dialogs}/>
             <Messages className='home--messages-grid-position home--background' items={messages}/>
-            <div className='home--new-message-grid-position home--background'></div>
+            <InputMessage className='home--new-message-grid-position home--background' />
         </div>
     )
 }

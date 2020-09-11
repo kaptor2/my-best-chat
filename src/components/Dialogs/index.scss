@@ -1,5 +1,9 @@
 .dialogs {
     
+    border-right: 1px solid #E7EFFE;
+    overflow: hidden;
+
+
     input {
         width: 100%;
         height: 2.5rem;
@@ -34,5 +38,11 @@
     &__icon {
         position: absolute;
         left: 2.5rem;
+    }
+
+    &__input-items {
+        overflow-y: scroll;
+        padding-bottom: 30%;
+        height: 100%;
     }
 }

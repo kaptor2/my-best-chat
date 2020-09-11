@@ -32,7 +32,9 @@ export const Dialogs: React.FC<TDialogs> = ({ items, className }) => {
                 <input placeholder='Поиск среди контактов' onChange={onFilter} />
                 <SearchOutlined className='dialogs__icon' />
             </div>
-            {dialogs.map(item => <DialogItem key={item.user._id} {...item} />)}
+            <div className='dialogs__input-items'>
+                {dialogs.map(item => <DialogItem key={item.user._id} {...item} />)}
+            </div>
         </div>
     )
 }
