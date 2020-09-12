@@ -5,6 +5,7 @@ import { routing } from './constants';
 
 export const App: React.FC<any> = () => {
     return (
+
         <div className='app'>
             <Route exact
                 component={Auth}

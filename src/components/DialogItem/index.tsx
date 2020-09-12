@@ -4,31 +4,19 @@ import './index.scss';
 import { MyDate, Status } from '..';
 import classNames from 'classnames';
 import { Avatar } from '../Avatar';
+import { IDialog } from '../../types/IDialog'
 
-export interface IDialogItem {
-
-    text: string,
-    created_at: string,
-    notReed?: boolean,
-    count_unread?: number,
-    user: {
-        _id: string,
-        fullname: string,
-        avatar?: string
-        online?: boolean
-    }
-}
-
-export const DialogItem: React.FC<IDialogItem> = (props) => {
+export const DialogItem: React.FC<IDialog> = (props) => {
     const {
         text,
         created_at,
         notReed,
         count_unread,
-        user: { fullname,
+        user: { 
+            fullname,
             avatar,
-            online }
-    } = props;
+            online 
+        }} = props;
 
     return (
         <div className='dialogs__item'>
