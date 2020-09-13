@@ -27,7 +27,7 @@ export const loop = (arg: TLoop) => {
         }
         default: {
             anim && setPositionWave(anim, waveRef);
-            if (audioObj.current && timeRef.current.innerText !== formattedTime(audioObj.current.currentTime).toString())
+            if (audioObj.current && timeRef.current && timeRef.current.innerText !== formattedTime(audioObj.current.currentTime).toString())
                 setPositionTime(audioObj.current.currentTime, timeRef);
         }
     }

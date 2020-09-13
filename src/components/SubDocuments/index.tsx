@@ -3,16 +3,17 @@ import React from 'react';
 import './index.scss';
 
 type TSubDocuments = {
-    docs?: string[]
+    docs?: {
+        _id: string,
+        url: string
+    }[]
 }
 
 export const SubDocuments: React.FC<TSubDocuments> = ({ docs }) => {
-
-    if (!docs?.length) return null;
-
+console.log(docs)
     return (
         <div className='sub-documents'>
-            {docs && docs.map((el, i) => <div key={i}><img alt ='test alt'  src={el} /></div>)}
+            {docs && docs.map((el) => <div key={el._id}><img alt ='test alt'  src={el.url} /></div>)}
         </div>
     )
 }

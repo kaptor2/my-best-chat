@@ -7,7 +7,7 @@ import './index.scss';
 import { DialogItem } from '../../components/DialogItem';
 import { TState } from '../../redux/TState';
 import { TDialogState } from '../../redux/dialogs/typesDialog'; 
-import { dialogsActions } from '../../redux/dialogs/dialogsActions';
+import { fetchDialogs, selectDialog } from '../../redux/dialogs/dialogsActions';
 
 type TDialogs = {
     className: string
@@ -20,7 +20,7 @@ export const Dialogs: React.FC<TDialogs>  = ({ className }) => {
     const [filter, setFilter] = useState<string>('');
 
     useEffect(()=>{
-        dialogsActions.fetchDialogs(dispatch);
+        fetchDialogs(dispatch);
     },[dispatch])
 
     const dialogs = stateDialogs.items.length && stateDialogs.items
@@ -35,7 +35,7 @@ export const Dialogs: React.FC<TDialogs>  = ({ className }) => {
         setFilter(e.currentTarget.value.toUpperCase());
     
     const onSelectDialog = (id: string) => {
-        dispatch(dialogsActions.selectDialog(id));
+        dispatch(selectDialog(id));
     }
 
     const ElementNotResult: React.FC = () => (

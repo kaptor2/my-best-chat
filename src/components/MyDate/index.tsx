@@ -17,7 +17,7 @@ export const MyDate: React.FC<TMyDate> = ({ myDate, classes }) => {
         <span className={classes}>{
             myDate && isToday(date)
                 ? format(date, 'HH:mm')
-                : format(date, 'dd.mm.yyyy')
+                : format(date, 'dd.MM.yyyy')
         }</span>
     )
 }

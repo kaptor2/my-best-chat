@@ -4,33 +4,23 @@ import classNames from 'classnames';
 import './index.scss';
 import { Status, MyDate, SubDocuments, AudioMessage } from '..';
 import { Avatar } from '../Avatar';
+import { TMessage } from '../../redux/messages/typesMessage';
 
-export type TMessage = {
-    _id: string
-    ava?: string,
-    fullName: string,
-    text?: string,
-    date: string,
-    isMe?: boolean,
-    notReed?: boolean,
-    docs?: string[],
-    audio?: {
-        tones: number[],
-        url: string,
-        duration: number
-    }
-}
 
-export const Message: React.FC<TMessage> = ({
-    _id,
-    fullName,
-    ava,
-    text,
-    date,
-    isMe,
-    audio,
-    notReed,
-    docs = [] }: TMessage) => {
+export const Message: React.FC<TMessage> = (props) => {
+
+    const {
+        isMe,
+        date,
+        notReed,
+        user: {
+            fullName,
+            ava
+        },
+        audio,
+        text,
+        documents
+    } = props;
 
     const classes = classNames([
         'message',
@@ -44,9 +34,9 @@ export const Message: React.FC<TMessage> = ({
                 </div>
             </div>
             <div className="message__content">
-                {audio && <AudioMessage _id={_id} audio={audio} />}
+                {audio && <AudioMessage _id={audio._id} audio={audio} />}
                 {text && <p className='message--befor'>{text}</p>}
-                <SubDocuments docs={docs} />
+                {documents && <SubDocuments docs={documents} />}
                 <MyDate myDate={date} />
             </div>
             <Status notReed={notReed} className='message--status' />

@@ -8,12 +8,12 @@
 
    &--background-header { background-color: #e7effe; }
 
-   @include for-size(any) {  
       display: grid;
       grid-template-columns: 20rem 1fr;
       grid-template-rows: 4rem calc(100% - 4rem - 5rem) 5rem;
       height: 95%; 
       max-height: 95%;
+      width: 1024px;
 
       &--new-dialog-grid-position { grid-area: 1 / 1 / 2 / 2; }
       &--status-companion-grid-position { grid-area: 1 / 2 / 2 / 3; }
@@ -22,7 +22,6 @@
       &--new-message-grid-position { grid-area: 3 / 2 / 4 / 3; }
 
       &--background { background-color: white; }
-   }
 
    @include for-size(phone) {  
 

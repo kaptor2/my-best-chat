@@ -1,4 +1,37 @@
+@import '../../styles/constants.scss';
+
+@include keyframes(status-message-show) {
+    0% { transform: scale(0, 0); }
+    100% { transform: scale(1, 1); }
+}
+    
 .messages {
     overflow-y: scroll;
     position: relative;
+    background-color: white;
+
+    &--spinner{
+        color: #d6d6d6;
+        height: 100%;
+        font-size: 5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: status-message-show 0.15s;
+    }
+
+    &--send-show-message {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #d6d6d6;
+        height: 100%;
+        font-weight: 400;
+        animation: status-message-show 0.15s;
+        
+        .anticon {
+            font-size: 5rem;
+        }
+    }
 }

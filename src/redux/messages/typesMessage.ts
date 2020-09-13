@@ -29,12 +29,14 @@ export type TMessage = {
 }
 
 export type TMessageAction = {
-    type: 'MESSAGE:SET_ITEMS',
+    type: 'MESSAGE:SET_ITEMS' | 'MESSAGE:IS_LOADING',
     payload?: {
-        items?: Array<TMessage>
+        items?: Array<TMessage>,
+        isLoading?: boolean
     }
 }
 
 export type TMessageState = {
-    items: Array<TMessage> | []
+    items: Array<TMessage> | [],
+    isLoading: boolean
 }
