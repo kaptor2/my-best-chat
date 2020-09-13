@@ -1,5 +1,5 @@
 import React from 'react';
-import { TMessage, Message } from '../Message';
+import { TMessage, Message } from '../../components/Message';
 import classNames from 'classnames';
 import './index.scss'
 

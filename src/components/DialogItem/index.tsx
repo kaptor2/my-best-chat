@@ -4,22 +4,30 @@ import './index.scss';
 import { MyDate, Status } from '..';
 import classNames from 'classnames';
 import { Avatar } from '../Avatar';
-import { IDialog } from '../../types/IDialog'
+import { TDialog } from '../../redux/dialogs/typesDialog'
 
-export const DialogItem: React.FC<IDialog> = (props) => {
+interface IDialogItem extends TDialog {
+    onClick?: (callback: any) => void,
+    className?: string
+}
+
+export const DialogItem: React.FC<IDialogItem> = (props) => {
     const {
+        onClick,
+        className,
+        _id,
         text,
         created_at,
         notReed,
         count_unread,
-        user: { 
+        user: {
             fullname,
             avatar,
-            online 
-        }} = props;
+            online
+        } } = props;
 
     return (
-        <div className='dialogs__item'>
+        <div className={classNames(['dialogs__item', className])} onClick={() => onClick && onClick(_id)}>
             <div className={classNames([
                 "dialogs__item-avatar", {
                     'dialogs--online': online,

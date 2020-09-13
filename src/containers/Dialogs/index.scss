@@ -1,8 +1,26 @@
+@import '../../styles/constants.scss';
+
+
 .dialogs {
     
     border-right: 1px solid #E7EFFE;
     overflow: hidden;
 
+    &__not-result{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #d6d6d6;
+        font-weight: 400;
+        
+        .anticon {
+            font-size: 5rem;
+        }
+    }
+
+    &--active {
+        background-color: $dialog-item-hover;
+    }
 
     input {
         width: 100%;

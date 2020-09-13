@@ -1,12 +1,19 @@
-import { TDialogAction, TDialogState } from './../reducers/dialogs';
-import { dialogsApi } from '../../api';
+import { TDialogAction, TDialog } from './typesDialog';
+import { dialogsApi } from './dialogsApi';
 import { Dispatch } from 'redux';
 
 export const dialogsActions = {
-    getDialogs: (data: TDialogState): TDialogAction => ({
+    getDialogs: (data: Array<TDialog>): TDialogAction => ({
         type: 'DIALOGS:SET_ITEMS',
         payload: {
-            dialogs: data
+            items: data
+        }
+    }),
+
+    selectDialog: (id: string): TDialogAction => ({
+        type: "DIALOGS:SELECT_ITEM",
+        payload: {
+            currentDialog: id
         }
     }),
 

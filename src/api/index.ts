@@ -1,2 +1,3 @@
-export { default as axios } from './core';
-export { dialogsApi } from './dialogsApi';
+import axios from 'axios';
+axios.defaults.baseURL = 'http://localhost:3004/';
+export default axios;
