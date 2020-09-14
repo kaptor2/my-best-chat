@@ -1,0 +1,16 @@
+@import '../../styles/constants.scss';
+
+@include keyframes(status-message-show) {
+    0% { transform: scale(0, 0); }
+    100% { transform: scale(1, 1); }
+}
+
+.loader{
+    color: #d6d6d6;
+    height: 100%;
+    font-size: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: status-message-show 0.15s;
+}

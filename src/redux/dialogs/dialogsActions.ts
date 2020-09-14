@@ -16,7 +16,15 @@ export const selectDialog = (id: string): TDialogAction => ({
     }
 })
 
+const isLoading = (status: boolean): TDialogAction => ({
+    type: 'DIALOGS:IS_LOADING',
+    payload: {
+        isLoading: status
+    }
+})
+
 export const fetchDialogs = async (dispatch: Dispatch<any>) => {
+    dispatch(isLoading(true));
     const resultsDialogs = await dialogsApi.getAll();
     const resultActions = getDialogs(resultsDialogs.data);
     dispatch(resultActions);

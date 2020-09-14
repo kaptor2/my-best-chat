@@ -13,14 +13,16 @@ export type TDialog = {
 }
 
 export type TDialogAction = {
-    type: 'DIALOGS:SET_ITEMS' | 'DIALOGS:SELECT_ITEM',
+    type: 'DIALOGS:SET_ITEMS' | 'DIALOGS:SELECT_ITEM' | 'DIALOGS:IS_LOADING',
     payload?: {
-        items?: Array<TDialog>
-        currentDialog?: string
+        items?: Array<TDialog>,
+        currentDialog?: string,
+        isLoading?: boolean
     }
 }
 
 export type TDialogState = {
     items: Array<TDialog> | []
-    currentDialog: string
+    currentDialog: string,
+    isLoading: boolean
 }

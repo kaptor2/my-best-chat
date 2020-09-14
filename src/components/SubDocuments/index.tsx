@@ -10,7 +10,6 @@ type TSubDocuments = {
 }
 
 export const SubDocuments: React.FC<TSubDocuments> = ({ docs }) => {
-console.log(docs)
     return (
         <div className='sub-documents'>
             {docs && docs.map((el) => <div key={el._id}><img alt ='test alt'  src={el.url} /></div>)}

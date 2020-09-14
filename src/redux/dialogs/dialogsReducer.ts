@@ -2,7 +2,8 @@ import { TDialogAction, TDialogState } from './typesDialog';
 
 const initialState = {
     items: [],
-    currentDialog: ''
+    currentDialog: '',
+    isLoading: true
 }
 
 export const dialogs = (
@@ -15,7 +16,15 @@ export const dialogs = (
             if (payload?.items)
                 return {
                     ...state,
-                    items: payload.items
+                    items: payload.items,
+                    isLoading: false
+                }
+            return state;
+        case 'DIALOGS:IS_LOADING':
+            if (payload?.isLoading)
+                return {
+                    ...state,
+                    isLoading: payload.isLoading
                 }
             return state;
 
@@ -26,7 +35,7 @@ export const dialogs = (
                     currentDialog: payload.currentDialog
                 }
             return state;
-            
+
         default:
             return state;
     }

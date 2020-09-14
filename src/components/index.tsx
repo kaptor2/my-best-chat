@@ -16,3 +16,5 @@ export { NewDialog } from './NewDialog';
 export { FormContainer } from './FormContainer';
 export { HeaderStatus } from './HeaderStatus';
 export { InputMessage } from './InputMessage';
+export { Loader } from './Loader';
+export { SendShowMessage } from './SendShowMessage';
