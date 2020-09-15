@@ -12,8 +12,10 @@
     align-items: center;
     color: #d6d6d6;
     height: 100%;
+    width: 100%;
     font-weight: 400;
     animation: status-message-show 0.15s;
+    position: absolute;
     
     .anticon {
         font-size: 5rem;

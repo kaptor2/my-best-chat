@@ -1,5 +1,21 @@
 .messages {
-    overflow-y: scroll;
+    $main:&;
     position: relative;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+
+    &__scroll-block {
+        height: 100%;
+        overflow-y: scroll;
+
+        #{$main}__container {
+            display: flex;
+            flex-direction: column;
+
+            .fix {
+                flex: 1 1 auto;
+            }
+        }
+    }
 }

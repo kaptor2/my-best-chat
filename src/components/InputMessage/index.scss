@@ -2,13 +2,9 @@
 
 .input-message{
     $block: &;
-    position: relative;
-    display: flex;
-    align-items: center;
     padding: 0 2.1rem;
 
 
-    
     .anticon {
         font-size: 1.2rem;
         width: 2.5rem;
@@ -27,22 +23,14 @@
     } 
 
     &__form {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
+        padding-bottom: 17px;
 
         #{$block}__input-container {
-            width: 100%;
-            
-            height: 3rem;
-            outline:none;
-            display: flex;
-            align-items: center;
+            min-height: 3rem;
+            outline: none;
             border: 1px solid #E9E9E9;
-            padding-left: 3rem;
-            padding-right: 8rem;
-            border-radius: 4px; 
+            padding: 10px 8rem 10px 3rem;
+            border-radius: 4px;
             position: relative;
 
             #{$block}__input {
@@ -51,8 +39,9 @@
                 border: none;
                 overflow: hidden;
                 overflow-y: scroll;
-                max-width: 458px;
-                height: 24px;
+                max-height: 40vh;
+                
+                font-weight: 400;
 
                 a {
                     border: none;
@@ -60,20 +49,19 @@
             }
 
         }
-
-        
-    
-        #{$block}__text-send {
-            position: absolute;
-            right: 2.5rem;
-        }
     }
-    
+
+    #{$block}__text-send {
+        position: absolute;
+        right: 2.5rem;
+        bottom: 20px;
+    }
         
     #{$block}__emoji {
         z-index: 2;
         position: absolute;
         left: 2.3rem;
+        bottom: 20px;
 
         &:hover ~ #{$block}__emoji-picker{
             z-index: 10;
@@ -83,9 +71,9 @@
 
     #{$block}__emoji-picker {
         position: absolute;
-        top: -342px;
-        padding-bottom: 45px;
+        bottom: 58px;
         z-index: -10;
+        overflow: hidden;
 
         button {
             outline: none;
@@ -97,6 +85,7 @@
 
         &:hover {
             z-index: 10;
+            overflow: visible;
         }
         
         span:hover {
@@ -108,12 +97,14 @@
         z-index: 2;
         position: absolute;
         right: 7.7rem;
+        bottom: 20px;
     }
     
     #{$block}__audiosend {
         z-index: 2;
         position: absolute;
         right: 5.1rem;
+        bottom: 20px;
     }
     
 }

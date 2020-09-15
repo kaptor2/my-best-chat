@@ -7,7 +7,7 @@ import './index.scss';
 import { TMessageState } from '../../redux/messages/typesMessage';
 import { TState } from '../../redux/TState';
 import { fetchMessages } from '../../redux/messages/messagesActions';
-import { Loader, SendShowMessage } from '../../components';
+import { InputMessage, Loader, SendShowMessage } from '../../components';
 
 interface IMessages {
     className: string
@@ -27,21 +27,26 @@ export const Messages: React.FC<IMessages> = ({ className }) => {
     }, [currentDialog, dispatch])
 
     useEffect(() => {
-        const scrollEffectElement = scrollRef.current;
-        scrollEffectElement?.scrollTo(0,scrollEffectElement.offsetHeight);
-    }, [stateMessages])
+        scrollRef.current && (scrollRef.current.scrollTop = scrollRef.current.offsetHeight * 2);
+    })
 
     const messages = [...stateMessages.items].sort((d1, d2) => {
         return Date.parse(d2.date) - Date.parse(d1.date);
     });
 
     return (
-        <div ref={scrollRef} className={classNames('messages', className)}>
-            {stateMessages.isLoading
-                ? <Loader />
-                : !currentDialog
-                    ? <SendShowMessage />
-                    : messages.map(item => <Message key={item._id} {...item} />)}
+        <div className={classNames('messages', className)}>
+            <div ref={scrollRef} className='messages__scroll-block'>
+                <div className='messages__container' >
+                    <div className='fix'></div>
+                    {stateMessages.isLoading
+                        ? <Loader />
+                        : !currentDialog
+                            ? <SendShowMessage />
+                            : messages.map(item => <Message key={item._id} {...item} />)}
+                </div>
+            </div>
+            <InputMessage className='' />
         </div>
     )
 }
