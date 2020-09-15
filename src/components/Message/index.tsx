@@ -6,7 +6,6 @@ import { Status, MyDate, SubDocuments, AudioMessage } from '..';
 import { Avatar } from '../Avatar';
 import { TMessage } from '../../redux/messages/typesMessage';
 
-
 export const Message: React.FC<TMessage> = (props) => {
 
     const {
