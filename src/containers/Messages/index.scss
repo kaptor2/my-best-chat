@@ -8,14 +8,18 @@
     &__scroll-block {
         height: 100%;
         overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+
+        #{$main}--fix {
+            flex: 1 1 auto;
+        }
 
         #{$main}__container {
             display: flex;
             flex-direction: column;
 
-            .fix {
-                flex: 1 1 auto;
-            }
+            
         }
     }
 }

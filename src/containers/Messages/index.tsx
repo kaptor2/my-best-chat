@@ -27,8 +27,13 @@ export const Messages: React.FC<IMessages> = ({ className }) => {
     }, [currentDialog, dispatch])
 
     useEffect(() => {
-        scrollRef.current && (scrollRef.current.scrollTop = scrollRef.current.offsetHeight * 2);
+        scrollContainer();
     })
+
+    const scrollContainer = () => {
+        scrollRef.current && (scrollRef.current.scrollTop = scrollRef.current.offsetHeight * 2);
+    }
+        
 
     const messages = [...stateMessages.items].sort((d1, d2) => {
         return Date.parse(d2.date) - Date.parse(d1.date);
@@ -37,8 +42,9 @@ export const Messages: React.FC<IMessages> = ({ className }) => {
     return (
         <div className={classNames('messages', className)}>
             <div ref={scrollRef} className='messages__scroll-block'>
+                {currentDialog && !stateMessages.isLoading && 
+                    <div className='messages--fix'></div>}
                 <div className='messages__container' >
-                    <div className='fix'></div>
                     {stateMessages.isLoading
                         ? <Loader />
                         : !currentDialog
@@ -46,7 +52,8 @@ export const Messages: React.FC<IMessages> = ({ className }) => {
                             : messages.map(item => <Message key={item._id} {...item} />)}
                 </div>
             </div>
-            <InputMessage className='' />
+            { !stateMessages.isLoading && currentDialog &&
+                <InputMessage scrollContainer={scrollContainer} className='' />}
         </div>
     )
 }

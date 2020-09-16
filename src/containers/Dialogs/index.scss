@@ -1,10 +1,10 @@
 @import '../../styles/constants.scss';
 
-
 .dialogs {
     
     border-right: 1px solid #E7EFFE;
     overflow: hidden;
+    position: relative;
 
     &__not-result{
         display: flex;

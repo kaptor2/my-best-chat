@@ -7,28 +7,39 @@ import 'emoji-mart/css/emoji-mart.css';
 import './index.scss';
 
 type TinputMessage = {
-    className?: string
+    className?: string,
+    scrollContainer: () => void
 }
 
-export const InputMessage: React.FC<TinputMessage> = ({ className }) => {
+export const InputMessage: React.FC<TinputMessage> = ({ className, scrollContainer }) => {
 
     const redDivInput = useRef<HTMLDivElement>(null);
 
     const selectEmoji = (emoji: any) => {
 
-        const emojiString = `<img 
+        const emojiString = ` <img 
             alt=${emoji.native} 
-            src='https://abs-0.twimg.com/emoji/v2/svg/${(''+emoji.unified).replace(/-.*/, '')}.svg' 
-            width='20px'/>`;
-        redDivInput.current && (redDivInput.current.innerHTML += ('' + emojiString).replace(/span/g,'img'));
+            src='https://abs-0.twimg.com/emoji/v2/svg/${('' + emoji.unified).replace(/-.*/, '')}.svg' 
+            width='20px' />`;
+            const str = redDivInput.current && redDivInput.current.innerHTML.replace(/<br>$/,'');
+        
+        redDivInput.current && (redDivInput.current.innerHTML = str + ('' + emojiString));
+        scrollContainer();
     }
 
-    function press(e: React.KeyboardEvent<HTMLDivElement>) { 
-        if (e.key === 'Enter' && !e.shiftKey) { 
+    const onSubmit = () => {
+        redDivInput.current?.innerHTML.replace(/<br>/gm, '') &&
+            alert(redDivInput.current?.innerHTML);
+    }
+
+    const onFixShiftEnterPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
+        scrollContainer();
+
+        if (e.key === 'Enter' && !e.shiftKey) {
             e?.preventDefault();
-            alert ('submit')
-        } 
-    } 
+            onSubmit();
+        }
+    }
 
     return (
         <div className={classnames('input-message', className)}>
@@ -38,15 +49,15 @@ export const InputMessage: React.FC<TinputMessage> = ({ className }) => {
             </div>
             <PaperClipOutlined className='input-message__document' />
             <AudioOutlined className='input-message__audiosend' />
-            <SendOutlined className='input-message__text-send' />
+            <SendOutlined className='input-message__text-send' onClick={onSubmit} />
             <div className='input-message__form'>
                 <div className="input-message__input-container">
-                    <div 
+                    <div
                         ref={redDivInput}
-                        contentEditable={true} 
-                        placeholder='Введите сообщение' 
-                        className='input-message__input' 
-                        onKeyPress={press}/>
+                        contentEditable
+                        placeholder='Введите сообщение'
+                        className='input-message__input'
+                        onKeyDown = {onFixShiftEnterPress} />
                 </div>
             </div>
         </div>
