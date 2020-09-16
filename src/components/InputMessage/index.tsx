@@ -16,7 +16,6 @@ export const InputMessage: React.FC<TinputMessage> = ({ className, scrollContain
     const redDivInput = useRef<HTMLDivElement>(null);
 
     const selectEmoji = (emoji: any) => {
-
         const emojiString = ` <img 
             alt=${emoji.native} 
             src='https://abs-0.twimg.com/emoji/v2/svg/${('' + emoji.unified).replace(/-.*/, '')}.svg' 
@@ -34,6 +33,10 @@ export const InputMessage: React.FC<TinputMessage> = ({ className, scrollContain
 
     const onFixShiftEnterPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
         scrollContainer();
+
+        if (redDivInput.current?.innerHTML === '<br>') {
+            redDivInput.current && (redDivInput.current.innerHTML = '');
+        }
 
         if (e.key === 'Enter' && !e.shiftKey) {
             e?.preventDefault();

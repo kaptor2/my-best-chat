@@ -47,7 +47,7 @@ export const DialogItem: React.FC<IDialogItem> = (props) => {
                         myDate={created_at} />
                 </div>
                 <div className='dialogs__item-info-bottom'>
-                    <p>{text}</p>
+                    <p dangerouslySetInnerHTML={{__html:text}}></p>
                     <Status
                         notReed={notReed}
                         count_unread={count_unread}

@@ -34,7 +34,7 @@ export const Message: React.FC<TMessage> = (props) => {
             </div>
             <div className="message__content">
                 {audio && <AudioMessage _id={audio._id} audio={audio} />}
-                {text && <p className='message--befor'>{text}</p>}
+                {text && <p className='message--befor' dangerouslySetInnerHTML={{__html: text}}></p>}
                 {documents && <SubDocuments docs={documents} />}
                 <MyDate myDate={date} />
             </div>
