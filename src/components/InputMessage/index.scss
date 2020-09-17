@@ -43,8 +43,11 @@
                 overflow: hidden;
                 overflow-y: scroll;
                 max-height: 40vh;
-                
                 font-weight: 400;
+
+                img {
+                    width: 1rem;
+                }
 
                 a {
                     border: none;
