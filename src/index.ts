@@ -1,8 +1,11 @@
 import express from 'express';
+import { json as parsJson } from 'body-parser';
+
+import { createControllers } from './controllers';
+import { connectCore } from './core'
 
 const app = express();
-const PORT = 8000;
-app.get('/', (req, res) => res.send('Express + TypeScript Server'));
-app.listen(PORT, () => {
-    console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
-});
+app.use(parsJson());
+
+connectCore(app);
+createControllers(app);
