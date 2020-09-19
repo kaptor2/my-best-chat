@@ -81,6 +81,11 @@
             color: $bubble-text;
             padding: 13px;
             margin: 0;
+
+            img {
+                width: 1rem;
+                margin-left: 3px;
+            }
         }
 
         #{$self}--befor {

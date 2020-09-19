@@ -3,7 +3,7 @@ import { SendOutlined, SmileOutlined, PaperClipOutlined, AudioOutlined } from '@
 import classnames from 'classnames';
 import { Picker } from 'emoji-mart';
 import 'emoji-mart/css/emoji-mart.css';
-import { onKeyup, onPaste, cleanUp, emojiToHtml } from './test';
+import { onKeyup, onPaste, cleanUp, emojiToHtml } from './emojiParse';
 
 import './index.scss';
 
@@ -26,7 +26,7 @@ export const InputMessage: React.FC<TinputMessage> = ({ className, scrollContain
 
     const onSubmit = () => {
         redDivInput.current?.innerHTML.replace(/<br>/gm, '') &&
-            alert(redDivInput.current?.innerHTML);
+            console.log(redDivInput.current?.innerHTML);
     }
 
     const onFixShiftEnterPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -44,7 +44,7 @@ export const InputMessage: React.FC<TinputMessage> = ({ className, scrollContain
         <div className={classnames('input-message', className)}>
             <SmileOutlined className='input-message__emoji' />
             <div className='input-message__emoji-picker'>
-                <Picker onSelect={selectEmoji} set='apple' showPreview={true} />
+                <Picker onSelect={selectEmoji} set='twitter' showPreview={true} />
             </div>
             <PaperClipOutlined className='input-message__document' />
             <AudioOutlined className='input-message__audiosend' />

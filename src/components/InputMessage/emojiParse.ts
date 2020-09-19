@@ -68,7 +68,7 @@ export const emojiToHtml = (str: string) => {
     return str.replace(emojiRegex, buildImgFromEmoji);
 }
 
-const tpl = '<img class="emoji emoji--{code} js-smile-insert" src="{src}" srcset="{src} 1x, {src_x2} 2x" unselectable="on">';
+const tpl = `<img class="emoji emoji--{code} js-smile-insert" src="{src}" srcset="{src} 1x, {src_x2} 2x" unselectable="on">`;
 const url = 'https://abs-0.twimg.com/emoji/v2/svg/{code}.svg';
 const url2 = 'https://abs-0.twimg.com/emoji/v2/svg/{code}.svg';
 
