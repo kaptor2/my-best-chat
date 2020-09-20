@@ -1,5 +1,16 @@
 import mongoose, { Schema } from "mongoose";
-import validator from 'validator'
+import validator from 'validator';
+
+export type IUserSchema = {
+    email: string,
+    avatar: string,
+    fullname: string,
+    password: string,
+    confirmed: boolean,
+    confirm_hash: string,
+    createdAt: Date,
+    updatedAt: Date
+}
 
 const userSchema = new Schema({
     email: {
@@ -18,7 +29,7 @@ const userSchema = new Schema({
         required: true
     },
     confirmed: {
-        type: String,
+        type: Boolean,
         default: false
     },
     confirm_hash: String,
@@ -27,4 +38,4 @@ const userSchema = new Schema({
     { timestamps: true }
 )
 
-export const User = mongoose.model('Users', userSchema);
+export const User = mongoose.model('users', userSchema);

@@ -1,4 +1,4 @@
-import { User } from '../schemas';
+import { User } from '../models';
 import { Express } from 'express';
 
 export const userController = (app: Express) => {
@@ -6,7 +6,7 @@ export const userController = (app: Express) => {
     getByID(app);
 }
 
-const create = async (app: Express) => {
+const create = (app: Express) => {
     app.post('/user/registration', ({ body: { email, fullname, password } }, res) => {
         const user = new User({ email, fullname, password });
         user.save()
