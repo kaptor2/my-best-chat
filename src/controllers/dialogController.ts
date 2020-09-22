@@ -8,11 +8,13 @@ export const dialogController = (app: Express) => {
 
 const getAllDialogsByIDUser = (app: Express) => {
     app.get('/dialog/:id', ({ params: { id } }, res) => {
-        Dialog.find({ "users": { $all: [id] } }).populate({
-            path: 'users',
-            match: { _id: { $ne : id } },
-            select: 'fullname'
-          })
+        Dialog.find({ "users": { $all: [id] } })
+            .populate({
+                path: 'users',
+                match: { _id: { $ne: id } },
+                select: 'fullname avatar'
+            })
+            .populate('last_message', 'text')
             .then((dialog: any) => {
                 res.json(dialog).send()
             })
