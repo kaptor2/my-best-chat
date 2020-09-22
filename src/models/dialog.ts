@@ -8,13 +8,3 @@ const dialogSchema = new Schema({
 )
 
 export const Dialog = mongoose.model('Dialog', dialogSchema);
-
-
-/*const ToySchema = new Schema({ name: String });
-const ToyBoxSchema = new Schema({
-  toys: [ToySchema],
-  buffers: [Buffer],
-  strings: [String],
-  numbers: [Number]
-  // ... etc
-}); */

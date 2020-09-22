@@ -8,22 +8,23 @@ export const dialogController = (app: Express) => {
 
 const getAllDialogsByIDUser = (app: Express) => {
     app.get('/dialog/:id', ({ params: { id } }, res) => {
-        Dialog.find({ "users": { $all: [id] } }).populate('users')
-            .then((dialog) => {
+        Dialog.find({ "users": { $all: [id] } }).populate({
+            path: 'users',
+            match: { _id: { $ne : id } },
+            select: 'fullname'
+          })
+            .then((dialog: any) => {
                 res.json(dialog).send()
             })
-            .catch((error) => res.status(404).json({ message: 'Sorry, failed to search dialogs', error }).send());
+            .catch((error) => res.status(200).json({ message: 'Sorry, failed to search dialogs', error }).send());
     })
 }
 
-const getUserByID = async (id: string) => User.findById(id);
-
-
 const createDialog = (app: Express) => {
     app.post('/dialog/create', ({ body: { users } }, res) => {
-        const dialog = new Dialog({ users })
+        const dialog = new Dialog({ users });
         dialog.save()
-            .then((dialog) => res.json(dialog).send(dialog))
+            .then((dialog) => res.status(200).json(dialog).send(dialog))
             .catch(() => res.status(404).json({ message: 'Sorry, failed to create dialog' }).send());
     })
 }
