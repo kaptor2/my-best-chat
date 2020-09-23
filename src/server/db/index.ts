@@ -10,11 +10,20 @@ const pool = createPool({
 });
 
 export const db = {
-    all: () => new Promise((resolve, reject) => {
-        pool.query(`SELECT * FROM users WHERE _id = ?`,[3], (err, users) => {
-            if (err) reject(err);
-            resolve(users);
-        })
+    all: (id: number) => new Promise((resolve, reject) => {
+        pool.query(
+            `SELECT dialogs._id, 
+                message.text,
+                message.date AS created_at, 
+                message.notReed,
+                JSON_OBJECT('_id', users._id,'fullname',users.fullname,'avatar',users.avatar) user
+            FROM message 
+            LEFT JOIN dialogs ON message.dialog = dialogs._id
+            LEFT JOIN users ON message.user = users._id
+            WHERE dialogs.user LIKE '%,?,%'`, [id],
+            (err, dialogs: Array<any>) => {
+                if (err) reject(err);
+                resolve(dialogs);
+            })
     })
 };
-

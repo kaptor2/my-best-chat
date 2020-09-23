@@ -10,4 +10,4 @@ app.use('/api/test', apiRouter);
 
 app.listen(PORT, () => {
     console.log(`server is running on port: ${PORT}`)
-})
+}) 
