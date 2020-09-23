@@ -11,7 +11,7 @@ type TStatus = {
 
 export const Status: React.FC<TStatus> = ({ notReed, className, count_unread }: TStatus) => (
     <div className={classNames(['status', className])}>
-        {notReed && <img alt='статус' src={reed}></img>}
-        {count_unread && <span>{count_unread > 9 ? `9+` : count_unread}</span>}
+        { notReed ? <img alt='статус' src={reed}></img> : null}
+        {count_unread ? <span>{count_unread > 9 ? `9+` : count_unread}</span>: null}
     </div>
 )

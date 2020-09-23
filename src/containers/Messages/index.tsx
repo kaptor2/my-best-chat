@@ -36,7 +36,7 @@ export const Messages: React.FC<IMessages> = ({ className }) => {
         
 
     const messages = [...stateMessages.items].sort((d1, d2) => {
-        return Date.parse(d2.date) - Date.parse(d1.date);
+        return  Date.parse(d1.date) - Date.parse(d2.date);
     });
 
     return (

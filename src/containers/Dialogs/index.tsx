@@ -29,9 +29,7 @@ export const Dialogs: React.FC<TDialogs> = ({ className }) => {
             return filter
                 ? item.user.fullname.toUpperCase().indexOf(filter) + 1
                 : item
-        }).sort((d1, d2) => {
-            return Date.parse(d2.created_at) - Date.parse(d1.created_at);
-        });
+        })
     const onFilter = (e: React.FormEvent<HTMLInputElement>) =>
         setFilter(e.currentTarget.value.toUpperCase());
 
