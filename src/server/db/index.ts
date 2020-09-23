@@ -1,3 +1,4 @@
+import { querys } from './querys';
 import { createPool } from 'mysql';
 
 const pool = createPool({
@@ -10,20 +11,22 @@ const pool = createPool({
 });
 
 export const db = {
-    all: (id: number) => new Promise((resolve, reject) => {
+    getDialogs: (id: number) => new Promise((resolve, reject) => {
         pool.query(
-            `SELECT dialogs._id, 
-                message.text,
-                message.date AS created_at, 
-                message.notReed,
-                JSON_OBJECT('_id', users._id,'fullname',users.fullname,'avatar',users.avatar) user
-            FROM message 
-            LEFT JOIN dialogs ON message.dialog = dialogs._id
-            LEFT JOIN users ON message.user = users._id
-            WHERE dialogs.user LIKE '%,?,%'`, [id],
+            querys.getAllDialogsByIdUser, Array(5).fill(id),
             (err, dialogs: Array<any>) => {
                 if (err) reject(err);
                 resolve(dialogs);
             })
-    })
+    }),
+
+    getMessages: (userId: number, dialogId: string ) => new Promise((resolve, reject) => {
+        pool.query(
+            querys.getMessages, [userId, userId, dialogId],
+            (err, messages: Array<any>) => {
+                if (err) reject(err);
+                console.log(messages)
+                resolve(messages);
+            })
+    }), 
 };
