@@ -3,7 +3,7 @@ import { db } from '../db';
 
 export const apiRouter = Router();
 
-apiRouter.get('/:id', async (req, res, next) => {
+apiRouter.get('/:id', async (req, res) => {
     try {
         let dialogs: any = await db.all(Number.parseInt(req.params.id));
         res.json(populate(["user"], dialogs));
