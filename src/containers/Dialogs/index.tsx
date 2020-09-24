@@ -33,8 +33,8 @@ export const Dialogs: React.FC<TDialogs> = ({ className }) => {
     const onFilter = (e: React.FormEvent<HTMLInputElement>) =>
         setFilter(e.currentTarget.value.toUpperCase());
 
-    const onSelectDialog = (id: string) => {
-        dispatch(selectDialog(id));
+    const onSelectDialog = (id: string, fullName: string) => {
+        dispatch(selectDialog(id, fullName));
     }
 
     const ElementNotResult: React.FC = () => (

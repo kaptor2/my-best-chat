@@ -3,7 +3,8 @@ import { TDialogAction, TDialogState } from './typesDialog';
 const initialState = {
     items: [],
     currentDialog: '',
-    isLoading: true
+    isLoading: true,
+    fullName: ''
 }
 
 export const dialogs = (
@@ -29,10 +30,11 @@ export const dialogs = (
             return state;
 
         case 'DIALOGS:SELECT_ITEM':
-            if (payload?.currentDialog)
+            if (payload?.currentDialog && payload?.fullName)
                 return {
                     ...state,
-                    currentDialog: payload.currentDialog
+                    currentDialog: payload.currentDialog,
+                    fullName: payload.fullName
                 }
             return state;
 

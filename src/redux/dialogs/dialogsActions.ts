@@ -9,10 +9,11 @@ const getDialogs = (data: Array<TDialog>): TDialogAction => ({
     }
 })
 
-export const selectDialog = (id: string): TDialogAction => ({
+export const selectDialog = (id: string, fullName: string): TDialogAction => ({
     type: "DIALOGS:SELECT_ITEM",
     payload: {
-        currentDialog: id
+        currentDialog: id,
+        fullName
     }
 })
 

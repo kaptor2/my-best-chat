@@ -7,7 +7,7 @@ import { Avatar } from '../Avatar';
 import { TDialog } from '../../redux/dialogs/typesDialog'
 
 interface IDialogItem extends TDialog {
-    onClick?: (callback: any) => void,
+    onClick?: (idDialog: string, fullName: string ) => void,
     className?: string
 }
 
@@ -27,7 +27,7 @@ export const DialogItem: React.FC<IDialogItem> = (props) => {
         } } = props;
 
     return (
-        <div className={classNames(['dialogs__item', className])} onClick={() => onClick && onClick(_id)}>
+        <div className={classNames(['dialogs__item', className])} onClick={() => onClick && onClick(_id, fullname)}>
             <div className={classNames([
                 "dialogs__item-avatar", {
                     'dialogs--online': online,

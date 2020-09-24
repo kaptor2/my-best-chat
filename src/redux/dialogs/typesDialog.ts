@@ -17,12 +17,14 @@ export type TDialogAction = {
     payload?: {
         items?: Array<TDialog>,
         currentDialog?: string,
-        isLoading?: boolean
+        isLoading?: boolean,
+        fullName?: string
     }
 }
 
 export type TDialogState = {
     items: Array<TDialog> | []
     currentDialog: string,
-    isLoading: boolean
+    isLoading: boolean,
+    fullName: string
 }

@@ -14,7 +14,7 @@ export const HeaderStatus: React.FC<THeaderStatus> = ({ className }) => {
     type TStateToProp = { name: string, isLoading: boolean };
     const { name, isLoading } = useSelector<TState, TStateToProp>((state) => {
         return {
-            name: state.messages.items[0] ? state.messages.items[0].user.fullName : "",
+            name: state.dialogs.fullName,
             isLoading: state.dialogs.isLoading
         }
     })
