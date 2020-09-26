@@ -9,7 +9,7 @@ import { validators } from '../validators';
 export const FormAuth: React.FC<any> = () => {
     const { register, handleSubmit, errors } = useForm({ mode: "onBlur" });
 
-    const onSubmit = (data: any) => alert(data);
+    const onSubmit = (data: any) => alert(data.email)
 
     return (
         <FormContainer onSubmit={handleSubmit(onSubmit)} title='Войти в аккаунт' text='Для входа, Вам необходимо заполнить email и пароль'>

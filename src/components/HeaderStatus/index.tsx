@@ -3,7 +3,6 @@ import classeNames from 'classnames';
 import './index.scss';
 import { useSelector } from 'react-redux';
 import { TState } from '../../redux/TState';
-import { Loader } from '../Loader';
 
 type THeaderStatus = {
     className?: string
@@ -11,21 +10,14 @@ type THeaderStatus = {
 
 export const HeaderStatus: React.FC<THeaderStatus> = ({ className }) => {
 
-    type TStateToProp = { name: string, isLoading: boolean };
-    const { name, isLoading } = useSelector<TState, TStateToProp>((state) => {
-        return {
-            name: state.dialogs.fullName,
-            isLoading: state.dialogs.isLoading
-        }
-    })
+    const fullName = useSelector<TState, string>((state) => state.dialogs.fullName)
 
-    if (isLoading) return <Loader />
-    if (!name) return null
+    if (!fullName) return null
 
     return (
         <div className={classeNames('header-status', className)}>
             <div className='header-status__container'>
-                <p className='header-status__full-name'> {name} </p>
+                <p className='header-status__full-name'> {fullName} </p>
                 <p className={classeNames('header-status__marker', {
                     "header-status--online": false,
                     "header-status--offline": true,
