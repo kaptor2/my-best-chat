@@ -1,4 +1,5 @@
 export const querys = {
+    
     getAllDialogsByIdUser: `SELECT 
             myDialogs._id,
             lastMessage.date AS created_at,
