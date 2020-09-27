@@ -6,7 +6,7 @@ export const dialogController = Router();
 
 dialogController.get('/get/dialogs/:id', async (req, res) => {
     try {
-        let dialogs: any = await dialogModel.getDialogs(Number.parseInt(req.params.id));
+        let dialogs: any = await dialogModel.getDialogs(req.params.id);
         res/*.cookie('TEEEST', '12345ABCDE',{
             httpOnly: true
         })*/.send(populate(["user"], dialogs));
