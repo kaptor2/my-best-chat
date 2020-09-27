@@ -1,8 +1,9 @@
+import { statusIs418 } from './../Auth/authActions';
 import { TDialogAction, TDialog } from './typesDialog';
 import { dialogsApi } from './dialogsApi';
 import { Dispatch } from 'redux';
 
-const getDialogs = (data: Array<TDialog>): TDialogAction => ({
+const setDialogs = (data: Array<TDialog>): TDialogAction => ({
     type: 'DIALOGS:SET_ITEMS',
     payload: {
         items: data
@@ -24,9 +25,14 @@ const isLoading = (status: boolean): TDialogAction => ({
     }
 })
 
-export const fetchDialogs = async (dispatch: Dispatch<any>) => {
-    dispatch(isLoading(true));
-    const resultsDialogs = await dialogsApi.getAll();
-    const resultActions = getDialogs(resultsDialogs.data);
-    dispatch(resultActions);
+export const fetchDialogs = async (dispatch: Dispatch<any>, ) => {
+    try {
+        dispatch(isLoading(true));
+        const resultsDialogs = await dialogsApi.getAll();
+        const resultActions = setDialogs(resultsDialogs.data);
+        dispatch(resultActions);
+    } catch (error) {
+        if(error.response.status === 418)
+            dispatch(statusIs418(false, error.response.data.message))
+    }
 }

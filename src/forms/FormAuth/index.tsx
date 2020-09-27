@@ -1,18 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button, Input } from '../../components/index';
 import { FormContainer } from '../../components/FormContainer';
 import { NavLink } from 'react-router-dom';
 import { routing } from '../../constants';
 import { validators } from '../validators';
+import { fetchAuth } from '../../redux/Auth/authActions'
+import { useDispatch } from 'react-redux';
+import './index.scss';
 
-export const FormAuth: React.FC<any> = () => {
+type TFormState = {
+    email: string,
+    password: string
+}
+
+type TFormAuth = {
+    message: string
+}
+
+export const FormAuth: React.FC<TFormAuth> = ({ message }) => {
+
     const { register, handleSubmit, errors } = useForm({ mode: "onBlur" });
+    const [state, setState] = useState<TFormState>();
+    const dispatch = useDispatch();
 
-    const onSubmit = (data: any) => alert(data.email)
+    useEffect(() => {
+        state && state.email && state.password && fetchAuth(dispatch, state);
+    }, [state, dispatch])
+
+    const onSubmit = (data: any) => {
+        setState({
+            email: data.email,
+            password: data.password
+        })
+    }
 
     return (
-        <FormContainer onSubmit={handleSubmit(onSubmit)} title='Войти в аккаунт' text='Для входа, Вам необходимо заполнить email и пароль'>
+        <FormContainer onSubmit={handleSubmit(onSubmit)}
+            title='Войти в аккаунт'
+            text='Для входа, Вам необходимо заполнить email и пароль'>
+
+            <div className='error-text'>{message}</div>
             <Input
                 placeholder='Почтовый адрес'
                 name="email"
