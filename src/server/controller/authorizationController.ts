@@ -10,7 +10,7 @@ authorizationController.post('/set/authorization', async (req, res) => {
         const aut = await userModel.checkUserPassword(req.body.email, req.body.password);
 
         if (!aut) {
-            throw 'invalid username or password'
+            throw 'Некорректный email или пароль'
         }
             
         if (!req.headers["user-agent"])
@@ -26,7 +26,7 @@ authorizationController.post('/set/authorization', async (req, res) => {
         })
 
     } catch (error) {
-        res.status(208).send({
+        res.status(418).send({
             message: error
         });
     }
