@@ -1,5 +1,5 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink, Redirect } from 'react-router-dom';
 
 import './index.scss';
 import { Button, Input } from '../../components/index';
@@ -7,11 +7,36 @@ import { FormContainer } from '../../components/FormContainer';
 import { routing } from '../../constants';
 import { useForm } from 'react-hook-form';
 import { validators } from '../validators';
+import { useDispatch } from 'react-redux';
+import { fetchRegis } from '../../redux/AuthReg/authRegActions';
+
+type TFormState = {
+    email: string,
+    password: string,
+    fullName: string
+}
 
 export const FormReg: React.FC<any> = () => {
 
     const { register, handleSubmit, errors, watch } = useForm({ mode: 'all' });
-    const onSubmit = (data: any) => alert(data);
+    const [state, setState] = useState<TFormState>();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        state?.fullName && state.email && state.password && fetchRegis(dispatch, state);
+        
+    }, [state, dispatch])
+
+    const onSubmit = (data: any) => {
+        setState({
+            email: data.email,
+            password: data.password,
+            fullName: data.name
+        })
+    }
+
+    if (state?.fullName && state.email && state.password)
+        return <Redirect to='/authorization' />
 
     return (
         <FormContainer onSubmit={handleSubmit(onSubmit)} 

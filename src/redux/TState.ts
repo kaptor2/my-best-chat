@@ -1,4 +1,4 @@
-import { TAuthState } from './Auth/authReducer';
+import { TAuthState } from './AuthReg/authReducer';
 import { TDialogState } from './dialogs/typesDialog'
 import { TMessageState } from './messages/typesMessage'
 

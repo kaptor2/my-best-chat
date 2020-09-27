@@ -5,7 +5,7 @@ import { FormContainer } from '../../components/FormContainer';
 import { NavLink } from 'react-router-dom';
 import { routing } from '../../constants';
 import { validators } from '../validators';
-import { fetchAuth } from '../../redux/Auth/authActions'
+import { fetchAuth } from '../../redux/AuthReg/authRegActions'
 import { useDispatch } from 'react-redux';
 import './index.scss';
 
