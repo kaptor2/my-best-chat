@@ -39,7 +39,15 @@ export const querys = {
         WHERE message.dialog = ? AND message.dialog like CONCAT('%.',?,'.%')
         ORDER BY date ASC`,
 
-    setUser: `INSERT INTO users (fullname, email, PASSWORD, hash) VALUES (?, ?, ?, ?)`,
+    setUser: `INSERT INTO users (fullname, email, PASSWORD) VALUES (?, ?, ?)`,
 
-    checkUser: `SELECT COUNT(*) as count FROM users WHERE users.email = ?`
+    checkUser: `SELECT COUNT(*) as count FROM users WHERE users.email = ?`,
+
+    checkUserPassword: `SELECT COUNT(*) as count FROM users WHERE users.email = ? AND users.password = ?`,
+
+    setUserToken: `UPDATE users SET users.hash = ? WHERE users.email = ? AND users.password = ?`,
+
+    getIdByHash: `SELECT _id FROM _users WHERE _users.hash = ?`,
+
+    cleaToken: `UPDATE users SET users.hash = ? WHERE users.hash = ?`,
 }

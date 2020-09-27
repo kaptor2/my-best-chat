@@ -1,9 +1,14 @@
 import express from 'express';
-import { dialogController, messageController, registrationController } from './controller';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
+
+import { checkToken } from './middleware';
+import { dialogController, 
+  messageController, 
+  registrationController,
+  authorizationController } from './controller';
 
 dotenv.config();
 
@@ -16,6 +21,9 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 
 app.use('/api/', registrationController);
+app.use('/api/', authorizationController);
+
+app.use(checkToken);
 
 app.use('/api/', dialogController);
 app.use('/api/', messageController);
