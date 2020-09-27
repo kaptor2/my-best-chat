@@ -34,7 +34,7 @@ import { pool } from './core'
             });
     }),
 
-    getIdByHash: (hash: string) => new Promise((resolve, reject) => {
+    getIdByHash: (hash: string) => new Promise<string>((resolve, reject) => {
         pool.query(querys.getIdByHash, [hash], (error, messages: Array<any> ) => {
             error ? reject(error) : resolve(messages[0]._id)  
         })

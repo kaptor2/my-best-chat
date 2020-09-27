@@ -6,7 +6,7 @@ export const registrationController = Router();
 registrationController.post('/set/registration', async (req, res) => {
     try {
         if (await userModel.getCheckUser(req.body.email) )
-            throw 'user is already registered'
+            throw 'Пользователь с этим email уже зарегистрирован'
 
         await userModel.setUser(
             req.body.fullName,
@@ -15,11 +15,11 @@ registrationController.post('/set/registration', async (req, res) => {
         )
         
         res.send({
-            message: 'user created'
+            message: 'Пользователь успешно создан, авторизуйтесь'
         })
 
     } catch (error) {
-        res.status(208).send({
+        res.status(418).send({
             message: error
         });
     }
