@@ -3,16 +3,15 @@ import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import './Home.scss';
-import { Dialogs, Messages } from '../../containers/index'
-import { NewDialog, HeaderStatus } from '../../components';
-import { TState } from '../../redux/TState';
-import { routing } from '../../constants';
+import { Dialogs, Messages } from 'containers/index'
+import { NewDialog, HeaderStatus } from 'components';
+import { TState } from 'redux/TState';
 
 export const Home: React.FC = () => {
 
     const stateAth = useSelector((store: TState) => store.authReducer.status)
     if (!stateAth)
-        return <Redirect to={`/${routing[routing.authorization]}`} />
+        return <Redirect to={`authorization`} />
 
     return (
         <div className='home'>

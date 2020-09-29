@@ -2,7 +2,7 @@ import React from 'react';
 import classeNames from 'classnames';
 import './index.scss';
 import { useSelector } from 'react-redux';
-import { TState } from '../../redux/TState';
+import { TState } from 'redux/TState';
 
 type THeaderStatus = {
     className?: string

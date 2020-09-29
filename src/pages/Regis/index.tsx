@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { CardBlock } from '../../components';
+import { CardBlock } from 'components';
 
-import { FormReg } from '../../forms';
+import { FormReg } from 'forms';
 
 export const Regis: React.FC<null> = () => {
 

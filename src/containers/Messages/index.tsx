@@ -2,12 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Message } from '../../components/Message';
+import { Message } from 'components/Message';
 import './index.scss';
-import { TMessageState } from '../../redux/messages/typesMessage';
-import { TState } from '../../redux/TState';
-import { fetchMessages } from '../../redux/messages/messagesActions';
-import { InputMessage, Loader, SendShowMessage } from '../../components';
+import { TMessageState } from 'redux/messages/typesMessage';
+import { TState } from 'redux/TState';
+import { fetchMessages } from 'redux/messages/messagesActions';
+import { InputMessage, Loader, SendShowMessage } from 'components';
 
 interface IMessages {
     className: string

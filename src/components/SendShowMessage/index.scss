@@ -1,4 +1,4 @@
-@import '../../styles/constants.scss';
+@import 'styles/constants.scss';
 
 @include keyframes(status-message-show) {
     0% { transform: scale(0, 0); }

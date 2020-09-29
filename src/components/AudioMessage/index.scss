@@ -1,14 +1,9 @@
-@import '../../styles/constants.scss';
+@import 'styles/constants.scss';
 
 .message {
     .audio-message {
         $audio-message: '.audio-message';
         width: 16rem;
-        &--play {
-            span {
-               // color: white !important;
-            }
-        }
 
         position: relative;
 

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Button, Input } from '../../components/index';
-import { FormContainer } from '../../components/FormContainer';
+import { Button, Input } from 'components/index';
+import { FormContainer } from 'components/FormContainer';
 import { NavLink } from 'react-router-dom';
-import { routing } from '../../constants';
-import { validators } from '../validators';
-import { fetchAuth } from '../../redux/AuthReg/authRegActions'
+import { validators } from 'forms/validators';
+import { fetchAuth } from 'redux/AuthReg/authRegActions'
 import { useDispatch } from 'react-redux';
 import './index.scss';
 
@@ -55,7 +54,7 @@ export const FormAuth: React.FC<TFormAuth> = ({ message }) => {
                 myRef={register(validators('password'))}
             />
             <Button>Войти в аккаунт</Button>
-            <NavLink to={`/${routing[routing.registration]}`}>Зарегистрироваться</NavLink>
+            <NavLink to={`/registration`}>Зарегистрироваться</NavLink>
         </FormContainer>
     )
 }

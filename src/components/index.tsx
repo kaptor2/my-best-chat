@@ -7,7 +7,6 @@ export { Status } from './Status';
 export { MyDate } from './MyDate';
 export { SubDocuments } from './SubDocuments';
 export { ImagesFullScreen } from './ImagesFullScreen';
-export { Dialogs  } from '../containers/Dialogs';
 export { Avatar } from './Avatar';
 export { AudioMessage } from './AudioMessage';
 export { AudioWave } from './AudioWave';

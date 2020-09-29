@@ -1,5 +1,5 @@
 import React from 'react';
-import reed from '../../assets/isReed.svg';
+import reed from 'assets/isReed.svg';
 import './index.scss';
 import classNames from 'classnames';
 

@@ -1,8 +1,6 @@
 import React from 'react';
 import { format, isToday, isDate } from 'date-fns';
 
-import './index.scss';
-
 type TMyDate = {
     myDate: string,
     classes?: string

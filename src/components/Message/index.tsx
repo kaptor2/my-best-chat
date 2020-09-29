@@ -3,8 +3,8 @@ import classNames from 'classnames';
 
 import './index.scss';
 import { Status, MyDate, SubDocuments, AudioMessage } from '..';
-import { Avatar } from '../Avatar';
-import { TMessage } from '../../redux/messages/typesMessage';
+import { Avatar } from 'components/Avatar';
+import { TMessage } from 'redux/messages/typesMessage';
 
 export const Message: React.FC<TMessage> = (props) => {
 

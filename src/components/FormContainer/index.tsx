@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './index.scss';
-import { PopapHeader } from '..';
+import { PopapHeader } from 'components/PopapHeader';
 
 type TForm = {
     children: any[] | any,

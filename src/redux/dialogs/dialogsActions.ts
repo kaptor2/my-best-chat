@@ -1,4 +1,4 @@
-import { statusIs418 } from '../AuthReg/authRegActions';
+import { statusIs418 } from 'redux/AuthReg/authRegActions';
 import { TDialogAction, TDialog } from './typesDialog';
 import { dialogsApi } from './dialogsApi';
 import { Dispatch } from 'redux';

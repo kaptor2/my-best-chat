@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { CardBlock } from '../../components';
+import { CardBlock } from 'components';
 
 import './index.scss';
-import { FormAuth } from '../../forms';
+import { FormAuth } from 'forms';
 import { useSelector } from 'react-redux';
-import { TState } from '../../redux/TState';
+import { TState } from 'redux/TState';
 import { Redirect } from 'react-router-dom';
 
 export const Auth: React.FC<null> = () => {

@@ -3,8 +3,8 @@ import React from 'react';
 import './index.scss';
 import { MyDate, Status } from '..';
 import classNames from 'classnames';
-import { Avatar } from '../Avatar';
-import { TDialog } from '../../redux/dialogs/typesDialog'
+import { Avatar } from 'components/Avatar';
+import { TDialog } from 'redux/dialogs/typesDialog'
 
 interface IDialogItem extends TDialog {
     onClick?: (idDialog: string, fullName: string ) => void,

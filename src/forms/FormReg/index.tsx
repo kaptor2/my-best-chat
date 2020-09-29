@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, Redirect } from 'react-router-dom';
 
 import './index.scss';
-import { Button, Input } from '../../components/index';
-import { FormContainer } from '../../components/FormContainer';
-import { routing } from '../../constants';
+import { Button, Input } from 'components/index';
+import { FormContainer } from 'components/FormContainer';
 import { useForm } from 'react-hook-form';
-import { validators } from '../validators';
+import { validators } from 'forms/validators';
 import { useDispatch } from 'react-redux';
-import { fetchRegis } from '../../redux/AuthReg/authRegActions';
+import { fetchRegis } from 'redux/AuthReg/authRegActions';
 
 type TFormState = {
     email: string,
@@ -66,7 +65,7 @@ export const FormReg: React.FC<any> = () => {
                 name="stillpassword"
                 myRef={register({ validate: (value) => value === watch('password') })} />
             <Button>Зарегистрироваться</Button>
-            <NavLink to={`/${routing[routing.authorization]}`}>Воти в аккаунт</NavLink>
+            <NavLink to={`/authorization`}>Воти в аккаунт</NavLink>
         </FormContainer>
         
     )

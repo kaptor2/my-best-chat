@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { PlayCircleFilled, PauseCircleFilled } from '@ant-design/icons';
 
-import { AudioWave } from '..';
+import { AudioWave } from 'components';
 import { formattedTime, loop, rewind } from './animation-logic';
 import './index.scss';
 

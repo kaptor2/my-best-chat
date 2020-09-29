@@ -4,11 +4,11 @@ import { DropboxOutlined, SearchOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './index.scss';
-import { DialogItem } from '../../components/DialogItem';
-import { TState } from '../../redux/TState';
-import { TDialogState } from '../../redux/dialogs/typesDialog';
-import { fetchDialogs, selectDialog } from '../../redux/dialogs/dialogsActions';
-import { Loader } from '../../components';
+import { DialogItem } from 'components/DialogItem';
+import { TState } from 'redux/TState';
+import { TDialogState } from 'redux/dialogs/typesDialog';
+import { fetchDialogs, selectDialog } from 'redux/dialogs/dialogsActions';
+import { Loader } from 'components';
 
 type TDialogs = {
     className: string
