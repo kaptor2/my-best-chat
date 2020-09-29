@@ -32,7 +32,7 @@ export const fetchDialogs = async (dispatch: Dispatch<any>, ) => {
         const resultActions = setDialogs(resultsDialogs.data);
         dispatch(resultActions);
     } catch (error) {
-        if(error.response.status === 418)
+        error.response && error.response.status === 418 &&
             dispatch(statusIs418(false, error.response.data.message))
     }
 }

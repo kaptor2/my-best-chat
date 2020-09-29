@@ -14,7 +14,7 @@ export const Avatar: React.FC<TAvatar> = ({ fullName, src }) => {
     }
 
     const gradientAvatar = (fullName: string): JSX.Element => {
-        const upFullName = fullName.toUpperCase();
+        const upFullName = fullName ? fullName.toUpperCase() : "Неизвестный пользователь";
         const hOfHslaColor = genCalcColor(upFullName);
         const cssText = `linear-gradient(
             315deg, 
