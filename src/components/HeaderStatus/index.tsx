@@ -1,8 +1,8 @@
 import React from 'react';
 import classeNames from 'classnames';
-import './index.scss';
 import { useSelector } from 'react-redux';
-import { TState } from 'redux/TState';
+
+import './index.scss';
 
 type THeaderStatus = {
     className?: string
@@ -10,7 +10,8 @@ type THeaderStatus = {
 
 export const HeaderStatus: React.FC<THeaderStatus> = ({ className }) => {
 
-    const fullName = useSelector<TState, string>((state) => state.dialogs.fullName)
+    const fullName = useSelector<reduxTypes.TStore,
+        string>((state) => state.dialogs.fullName)
 
     if (!fullName) return null
 
@@ -23,9 +24,7 @@ export const HeaderStatus: React.FC<THeaderStatus> = ({ className }) => {
                     "header-status--offline": true,
                 })}> онлайн </p>
             </div>
-            <div className="header-status__buttons">
-
-            </div>
+            <div className="header-status__buttons"></div>
         </div>
     )
 }

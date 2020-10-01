@@ -7,7 +7,7 @@ import { FormContainer } from 'components/FormContainer';
 import { useForm } from 'react-hook-form';
 import { validators } from 'forms/validators';
 import { useDispatch } from 'react-redux';
-import { fetchRegis } from 'redux/AuthReg/authRegActions';
+import { fetchRegis } from 'redux/actions/authRegActions';
 
 type TFormState = {
     email: string,
@@ -15,7 +15,7 @@ type TFormState = {
     fullName: string
 }
 
-export const FormReg: React.FC<any> = () => {
+export const FormReg: React.FC = () => {
 
     const { register, handleSubmit, errors, watch } = useForm({ mode: 'all' });
     const [state, setState] = useState<TFormState>();
@@ -23,7 +23,7 @@ export const FormReg: React.FC<any> = () => {
 
     useEffect(() => {
         state?.fullName && state.email && state.password && fetchRegis(dispatch, state);
-        
+
     }, [state, dispatch])
 
     const onSubmit = (data: any) => {
@@ -38,8 +38,8 @@ export const FormReg: React.FC<any> = () => {
         return <Redirect to='/authorization' />
 
     return (
-        <FormContainer onSubmit={handleSubmit(onSubmit)} 
-            title='Регистрация' 
+        <FormContainer onSubmit={handleSubmit(onSubmit)}
+            title='Регистрация'
             text='Для входа в чат, вам нужно зарегистрироваться'>
             <Input ok={errors.email}
                 type="email"
@@ -67,6 +67,5 @@ export const FormReg: React.FC<any> = () => {
             <Button>Зарегистрироваться</Button>
             <NavLink to={`/authorization`}>Воти в аккаунт</NavLink>
         </FormContainer>
-        
     )
 }

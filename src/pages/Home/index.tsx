@@ -1,17 +1,28 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import './Home.scss';
 import { Dialogs, Messages } from 'containers/index'
-import { NewDialog, HeaderStatus } from 'components';
-import { TState } from 'redux/TState';
+import { NewDialog, HeaderStatus, Loader } from 'components';
+import { checkAuth } from 'redux/actions/authRegActions';
 
 export const Home: React.FC = () => {
 
-    const stateAth = useSelector((store: TState) => store.authReducer.status)
+    const stateAth = useSelector<reduxTypes.TStore, number>((store) => store.authReducer.status)
+
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        stateAth ||
+            checkAuth(dispatch)
+    })
+
     if (!stateAth)
-        return <Redirect to={`authorization`} />
+        return <Loader/>
+    
+    if (stateAth !== 200)
+         return <Redirect to={`authorization`} />
 
     return (
         <div className='home'>

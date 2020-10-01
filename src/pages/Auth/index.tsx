@@ -1,24 +1,23 @@
 import React from 'react';
-
-import { CardBlock } from 'components';
-
-import './index.scss';
-import { FormAuth } from 'forms';
 import { useSelector } from 'react-redux';
-import { TState } from 'redux/TState';
 import { Redirect } from 'react-router-dom';
 
-export const Auth: React.FC<null> = () => {
+import { CardBlock } from 'components';
+import { FormAuth } from 'forms';
+import './index.scss';
 
-    const stateAth = useSelector((store: TState) => store.authReducer)
-    if (stateAth.status)
+export const Auth: React.FC = () => {
+
+    const stateAth = useSelector<reduxTypes.TStore,
+        reduxTypes.TAuthState>((store) => store.authReducer)
+    if (stateAth.status === 200)
         return <Redirect to={`/`} />
 
     return (
         <section className='auth'>
             <div className='auth__container'>
                 <CardBlock>
-                    <FormAuth message={stateAth.message}/>
+                    <FormAuth message={stateAth.message} />
                 </CardBlock>
             </div>
         </section>

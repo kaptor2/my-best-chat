@@ -3,11 +3,9 @@ import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Message } from 'components/Message';
-import './index.scss';
-import { TMessageState } from 'redux/messages/typesMessage';
-import { TState } from 'redux/TState';
-import { fetchMessages } from 'redux/messages/messagesActions';
+import { fetchMessages } from 'redux/actions/messagesActions';
 import { InputMessage, Loader, SendShowMessage } from 'components';
+import './index.scss';
 
 interface IMessages {
     className: string
@@ -15,8 +13,12 @@ interface IMessages {
 
 export const Messages: React.FC<IMessages> = ({ className }) => {
 
-    const stateMessages = useSelector<TState, TMessageState>(store => store.messages);
-    const currentDialog = useSelector<TState, string>(store => store.dialogs.currentDialog);
+    const stateMessages = useSelector<reduxTypes.TStore,
+        reduxTypes.TMessageState>(store => store.messages);
+
+    const currentDialog = useSelector<reduxTypes.TStore, string>
+        (store => store.dialogs.currentDialog);
+        
     const scrollRef = useRef<HTMLDivElement>(null);
     const dispatch = useDispatch();
 
@@ -33,16 +35,15 @@ export const Messages: React.FC<IMessages> = ({ className }) => {
     const scrollContainer = () => {
         scrollRef.current && (scrollRef.current.scrollTop = scrollRef.current.offsetHeight * 2);
     }
-        
 
     const messages = [...stateMessages.items].sort((d1, d2) => {
-        return  Date.parse(d1.date) - Date.parse(d2.date);
+        return Date.parse(d1.date) - Date.parse(d2.date);
     });
 
     return (
         <div className={classNames('messages', className)}>
             <div ref={scrollRef} className='messages__scroll-block'>
-                {currentDialog && !stateMessages.isLoading && 
+                {currentDialog && !stateMessages.isLoading &&
                     <div className='messages--fix'></div>}
                 <div className='messages__container' >
                     {stateMessages.isLoading

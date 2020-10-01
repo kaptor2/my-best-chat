@@ -1,4 +1,4 @@
-import { TDialogAction, TDialogState } from './typesDialog';
+import { Reducer } from "react";
 
 const initialState = {
     items: [],
@@ -7,10 +7,8 @@ const initialState = {
     fullName: ''
 }
 
-export const dialogs = (
-    state: TDialogState = initialState,
-    { type, payload }: TDialogAction)
-    : TDialogState => {
+export const dialogs: Reducer<reduxTypes.TDialogState, 
+reduxTypes.TDialogAction > = (state = initialState, { type, payload }) => {
     switch (type) {
 
         case 'DIALOGS:SET_ITEMS':

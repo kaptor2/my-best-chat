@@ -1,15 +1,15 @@
-import { TMessageAction, TMessage} from './typesMessage';
-import { messagesApi } from './messagesApi';
 import { Dispatch } from 'redux';
 
-    const getMessages = (data: Array<TMessage>): TMessageAction => ({
+import { messagesApi } from 'api/messagesApi';
+
+    const getMessages = (data: Array<reduxTypes.TMessage>): reduxTypes.TMessageAction => ({
         type: 'MESSAGE:SET_ITEMS',
         payload: {
             items: data
         }
     })
 
-    const isLoading = (status: boolean): TMessageAction => ({
+    const isLoading = (status: boolean): reduxTypes.TMessageAction => ({
         type: 'MESSAGE:IS_LOADING',
         payload: {
             isLoading: status

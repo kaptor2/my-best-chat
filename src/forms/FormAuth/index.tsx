@@ -4,7 +4,7 @@ import { Button, Input } from 'components/index';
 import { FormContainer } from 'components/FormContainer';
 import { NavLink } from 'react-router-dom';
 import { validators } from 'forms/validators';
-import { fetchAuth } from 'redux/AuthReg/authRegActions'
+import { fetchAuth } from 'redux/actions/authRegActions'
 import { useDispatch } from 'react-redux';
 import './index.scss';
 

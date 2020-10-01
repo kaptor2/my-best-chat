@@ -1,4 +1,5 @@
-import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3004/api/';
-axios.defaults.withCredentials = true;
-export default axios;
+export * from './core';
+export { authRegApi } from './authRegApi';
+export { checkConnect } from './checkConnect';
+export { dialogsApi } from './dialogsApi';
+export { messagesApi } from './messagesApi';

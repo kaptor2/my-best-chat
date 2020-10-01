@@ -2,24 +2,21 @@ import React from 'react';
 import classNames from 'classnames';
 
 import './index.scss';
-import { Status, MyDate, SubDocuments, AudioMessage } from '..';
-import { Avatar } from 'components/Avatar';
-import { TMessage } from 'redux/messages/typesMessage';
+import {
+    Status,
+    MyDate,
+    SubDocuments,
+    AudioMessage,
+    Avatar
+} from 'components';
 
-export const Message: React.FC<TMessage> = (props) => {
+export const Message: React.FC<reduxTypes.TMessage> = ({
+    isMe, date, notReed,
+    user: {
+        fullName,
+        ava },
+    audio, text, documents}) => {
 
-    const {
-        isMe,
-        date,
-        notReed,
-        user: {
-            fullName,
-            ava
-        },
-        audio,
-        text,
-        documents
-    } = props;
 
     const classes = classNames([
         'message',
@@ -34,7 +31,7 @@ export const Message: React.FC<TMessage> = (props) => {
             </div>
             <div className="message__content">
                 {audio && <AudioMessage _id={audio._id} audio={audio} />}
-                {text && <p className='message--befor' dangerouslySetInnerHTML={{__html: text}}></p>}
+                {text && <p className='message--befor' dangerouslySetInnerHTML={{ __html: text }}></p>}
                 {documents && <SubDocuments docs={documents} />}
                 <MyDate myDate={date} />
             </div>

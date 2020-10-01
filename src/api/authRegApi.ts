@@ -1,6 +1,6 @@
-import axios from 'api/index';
+import axios from 'api/core';
 
-export const authApi = {
+export const authRegApi = {
     onAuth: (email: string, password: string) =>
         axios.post('http://localhost:3004/api/set/authorization',
             { email, password }),

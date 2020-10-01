@@ -5,9 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import './index.scss';
 import { DialogItem } from 'components/DialogItem';
-import { TState } from 'redux/TState';
-import { TDialogState } from 'redux/dialogs/typesDialog';
-import { fetchDialogs, selectDialog } from 'redux/dialogs/dialogsActions';
+import { fetchDialogs, selectDialog } from 'redux/actions/dialogsActions';
 import { Loader } from 'components';
 
 type TDialogs = {
@@ -16,7 +14,9 @@ type TDialogs = {
 
 export const Dialogs: React.FC<TDialogs> = ({ className }) => {
 
-    const stateDialogs = useSelector<TState, TDialogState>(store => store.dialogs);
+    const stateDialogs = useSelector<reduxTypes.TStore, 
+        reduxTypes.TDialogState>(store => store.dialogs);
+        
     const dispatch = useDispatch();
     const [filter, setFilter] = useState<string>('');
 

@@ -1,14 +1,12 @@
-import { TMessageAction, TMessageState } from './typesMessage';
-
 const initialState = {
     items: [],
     isLoading: false
 }
 
 export const messages = (
-    state: TMessageState = initialState,
-    { type, payload }: TMessageAction)
-    : TMessageState => {
+    state: reduxTypes.TMessageState = initialState,
+    { type, payload }: reduxTypes.TMessageAction)
+    : reduxTypes.TMessageState => {
     switch (type) {
 
         case 'MESSAGE:SET_ITEMS':
