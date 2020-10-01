@@ -9,6 +9,7 @@ import { dialogController,
   messageController, 
   registrationController,
   authorizationController } from './controller';
+import { connectController } from './controller/connectController';
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.use('/api/', authorizationController);
 
 app.use(checkToken);
 
+app.use('/api/', connectController)
 app.use('/api/', dialogController);
 app.use('/api/', messageController);
 
