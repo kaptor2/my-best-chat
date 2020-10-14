@@ -49,18 +49,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `hash` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `session` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   KEY `_id` (`_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mychat.users: ~6 rows (approximately)
+-- Dumping data for table mychat.users: ~5 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`_id`, `fullname`, `avatar`, `date_create`, `hash`, `email`, `password`) VALUES
-	(1, 'Константин', 'https://sun9-76.userapi.com/impg/c857128/v857128397/7c967/wEN19RNgVnc.jpg?size=50x0&quality=88&crop=353,120,617,617&sign=dcbdcf5814f982b881bf9801297eba5f&ava=1', '2020-09-25 20:53:33', 'JGFyZ29uMmkkdj0xOSRtPTQwOTYsdD0zLHA9MSRLZVVHcmZwRTlQUWdDZkJXK0kvWnRRJEJIdVZRcTg=', 'kaptor2@gmail.com', '~MnogovsegO1919~'),
-	(2, 'Виталий', '', '2020-09-25 20:53:33', 'JGFyZ29uMmkkdj0xOSRtPTQwOTYsdD0zLHA9MSQvS2FZRnhJZEhGcU1GWm9DUzVhSUJnJHNESm1EdFU=', 'vit@gmail.com', '~MnogovsegO1919~'),
-	(3, 'Петя', '', '2020-09-25 20:53:33', 'JGFyZ29uMmkkdj0xOSRtPTQwOTYsdD0zLHA9MSRwUTdlNHJmSEpJakZpMTg3VUl2NzZnJFJKNzE3UkU=', 'Petr@mail.com', '~MnogovsegO1919~'),
-	(4, 'тестовый пользователь', '', '2020-09-26 23:50:46', NULL, 'test@gmail.com', '~MnogovsegO1919~'),
-	(12, 'Элина Юзаева', '', '2020-09-27 04:57:59', 'JGFyZ29uMmkkdj0xOSRtPTQwOTYsdD0zLHA9MSQwOHlXRGVoVU9KYUNqcHlzb01ZRDlBJGlMNU9LOEk=', 'kapstor2@gmail.com', 'Qwerty21'),
-	(16, 'Стьюи', NULL, '2020-09-27 22:31:01', NULL, 'k2aptor2@gmail.com', 'Qwerty21');
+INSERT INTO `users` (`_id`, `fullname`, `avatar`, `date_create`, `hash`, `email`, `password`, `session`) VALUES
+	(1, 'Константин', 'https://sun9-76.userapi.com/impg/c857128/v857128397/7c967/wEN19RNgVnc.jpg?size=50x0&quality=88&crop=353,120,617,617&sign=dcbdcf5814f982b881bf9801297eba5f&ava=1', '2020-09-25 20:53:33', 'JGFyZ29uMmkkdj0xOSRtPTQwOTYsdD0zLHA9MSRaY09TUkxkdkROdmpITkcxN01ucmVRJCtSR1RoSHM=', 'kaptor2@gmail.com', '~MnogovsegO1919~', 'test'),
+	(2, 'Виталий', '', '2020-09-25 20:53:33', 'JGFyZ29uMmkkdj0xOSRtPTQwOTYsdD0zLHA9MSQvS2FZRnhJZEhGcU1GWm9DUzVhSUJnJHNESm1EdFU=', 'vit@gmail.com', '~MnogovsegO1919~', NULL),
+	(3, 'Петя', '', '2020-09-25 20:53:33', 'JGFyZ29uMmkkdj0xOSRtPTQwOTYsdD0zLHA9MSRwUTdlNHJmSEpJakZpMTg3VUl2NzZnJFJKNzE3UkU=', 'Petr@mail.com', '~MnogovsegO1919~', NULL),
+	(4, 'тестовый пользователь', '', '2020-09-26 23:50:46', NULL, 'test@gmail.com', '~MnogovsegO1919~', NULL),
+	(12, 'Элина Юзаева', '', '2020-09-27 04:57:59', 'JGFyZ29uMmkkdj0xOSRtPTQwOTYsdD0zLHA9MSQwOHlXRGVoVU9KYUNqcHlzb01ZRDlBJGlMNU9LOEk=', 'kapstor2@gmail.com', 'Qwerty21', NULL),
+	(16, 'Стьюи', NULL, '2020-09-27 22:31:01', NULL, 'k2aptor2@gmail.com', 'Qwerty21', NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Dumping structure for view mychat._users
